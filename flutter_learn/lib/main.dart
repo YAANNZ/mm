@@ -14,7 +14,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.green,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: MyHomePage(title: '豆瓣'),
+      home: MyHomePage(title: '豆瓣App'),
       debugShowCheckedModeBanner: false,
     );
   }
@@ -45,24 +45,20 @@ class _MyHomePageState extends State<MyHomePage> {
         title: Text(widget.title),
       ),
       body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            Text(
-              'Hello douban',
-            ),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.headline4,
-            ),
-          ],
-        ),
+        child: Text('Hello douban'),
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: Icon(Icons.add),
-      ), // This trailing comma makes auto-formatting nicer for build methods.
     );
+  }
+}
+
+class StarRating extends StatefulWidget {
+  @override
+  _StarRatingState createState() => _StarRatingState();
+}
+
+class _StarRatingState extends State<StarRating> {
+  @override
+  Widget build(BuildContext context) {
+    return Container();
   }
 }
