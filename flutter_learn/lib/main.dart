@@ -45,7 +45,7 @@ class _MyHomePageState extends State<MyHomePage> {
         title: Text(widget.title),
       ),
       body: Center(
-        child: FLStarRating(),
+        child: FLStarRating(rating: 5),
       ),
     );
   }
@@ -59,14 +59,20 @@ class FLStarRating extends StatefulWidget {
   final Color unselectedColor;
   final Color selectedColor;
 
+  final Widget unSelectedImage;
+  final Widget selectedImage;
+
   FLStarRating({
     @required this.rating,
     this.maxRating = 10,
     this.count = 5,
     this.size = 30,
     this.unselectedColor = const Color(0xffbbbbbb),
-    this.selectedColor = Colors.red
-  });
+    this.selectedColor = Colors.red,
+    Widget unSelectedImage,
+    Widget selectedImage
+  }): unSelectedImage = unSelectedImage ?? Icon(Icons.star_border, color: unselectedColor, size: size),
+        selectedImage = selectedImage ?? Icon(Icons.star, color: selectedColor, size: size);
 
   @override
   _FLStarRatingState createState() => _FLStarRatingState();
@@ -83,11 +89,7 @@ class _FLStarRatingState extends State<FLStarRating> {
         ),
         Row(
           mainAxisSize: MainAxisSize.min,
-          children: <Widget>[
-            Icon(Icons.star, color: Colors.red, size: 30),
-            Icon(Icons.star, color: Colors.red, size: 30),
-            Icon(Icons.star, color: Colors.red, size: 30),
-          ],
+          children: buildSelectedStar(),
         )
       ],
     );
@@ -95,13 +97,46 @@ class _FLStarRatingState extends State<FLStarRating> {
 
   List<Widget> buildUnselectedStar() {
     return List.generate(widget.count, (index) {
-      return Icon(Icons.star_border, color: widget.unselectedColor, size: widget.size);
+      return widget.unSelectedImage;
     });
   }
 
   List<Widget> buildSelectedStar() {
-    return List.generate(widget.count, (index) {
-      return Icon(Icons.star_border, color: widget.unselectedColor, size: widget.size);
-    });
+    // 1、创建Stars List
+    List<Widget> stars = [];
+    final star = widget.selectedImage;
+
+    // 2、创建完整的星星
+    int entireCount = (widget.rating/widget.maxRating*widget.count).floor();
+    for (var i = 0; i < entireCount; i++) {
+      stars.add(star);
+    }
+
+    // 3、创建填充的星星
+    double leftWidth = ((widget.rating/widget.maxRating*widget.count) - entireCount)*widget.size;
+    final halfStar = ClipRect(
+      clipper: FLStarClipper(leftWidth),
+      child: star,
+    );
+    stars.add(halfStar);
+
+    return stars;
   }
+}
+
+class FLStarClipper extends CustomClipper<Rect> {
+
+  double width;
+  FLStarClipper(this.width);
+
+  @override
+  Rect getClip(Size size) {
+    return Rect.fromLTRB(0, 0, width, size.height);
+  }
+
+  @override
+  bool shouldReclip(FLStarClipper oldClipper) {
+    return oldClipper.width != width;
+  }
+
 }
