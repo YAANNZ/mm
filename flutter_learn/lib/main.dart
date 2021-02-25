@@ -45,20 +45,63 @@ class _MyHomePageState extends State<MyHomePage> {
         title: Text(widget.title),
       ),
       body: Center(
-        child: Text('Hello douban'),
+        child: FLStarRating(),
       ),
     );
   }
 }
 
-class StarRating extends StatefulWidget {
+class FLStarRating extends StatefulWidget {
+  final double rating;
+  final double maxRating;
+  final int count;
+  final double size;
+  final Color unselectedColor;
+  final Color selectedColor;
+
+  FLStarRating({
+    @required this.rating,
+    this.maxRating = 10,
+    this.count = 5,
+    this.size = 30,
+    this.unselectedColor = const Color(0xffbbbbbb),
+    this.selectedColor = Colors.red
+  });
+
   @override
-  _StarRatingState createState() => _StarRatingState();
+  _FLStarRatingState createState() => _FLStarRatingState();
 }
 
-class _StarRatingState extends State<StarRating> {
+class _FLStarRatingState extends State<FLStarRating> {
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return Stack(
+      children: <Widget>[
+        Row(
+          mainAxisSize: MainAxisSize.min,
+          children: buildUnselectedStar(),
+        ),
+        Row(
+          mainAxisSize: MainAxisSize.min,
+          children: <Widget>[
+            Icon(Icons.star, color: Colors.red, size: 30),
+            Icon(Icons.star, color: Colors.red, size: 30),
+            Icon(Icons.star, color: Colors.red, size: 30),
+          ],
+        )
+      ],
+    );
+  }
+
+  List<Widget> buildUnselectedStar() {
+    return List.generate(widget.count, (index) {
+      return Icon(Icons.star_border, color: widget.unselectedColor, size: widget.size);
+    });
+  }
+
+  List<Widget> buildSelectedStar() {
+    return List.generate(widget.count, (index) {
+      return Icon(Icons.star_border, color: widget.unselectedColor, size: widget.size);
+    });
   }
 }
