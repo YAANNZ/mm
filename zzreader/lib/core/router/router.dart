@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class ZZRouter {
-  // static final String initialRouter = ;
+  static final String initialRouter = '';
 
   static final Map<String, Widget> routers = {
 
