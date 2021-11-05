@@ -15,6 +15,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
       ),
       initialRoute: ZZRouter.initialRouter,
+      routes: ZZRouter.routers,
     );
   }
 }
