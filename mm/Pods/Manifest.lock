@@ -1,0 +1,30 @@
+PODS:
+  - ReactiveCocoa (10.3.0):
+    - ReactiveSwift (~> 6.2)
+  - ReactiveSwift (6.7.0)
+  - TYPagerController (2.1.2)
+  - YYKit (1.0.9):
+    - YYKit/no-arc (= 1.0.9)
+  - YYKit/no-arc (1.0.9)
+
+DEPENDENCIES:
+  - ReactiveCocoa (~> 10.1)
+  - TYPagerController
+  - YYKit
+
+SPEC REPOS:
+  trunk:
+    - ReactiveCocoa
+    - ReactiveSwift
+    - TYPagerController
+    - YYKit
+
+SPEC CHECKSUMS:
+  ReactiveCocoa: 083ae559e6f588ce519cab412ea119b431c26a24
+  ReactiveSwift: 208201d6ecc9734196d147aa76bc1f24b1b821fe
+  TYPagerController: 262556ecef99986d26ed77fb1288a198ed42f4af
+  YYKit: 7cda43304a8dc3696c449041e2cb3107b4e236e7
+
+PODFILE CHECKSUM: 0e07ba3b738743344598c050380d846900122210
+
+COCOAPODS: 1.10.2
