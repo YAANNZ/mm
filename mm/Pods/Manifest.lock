@@ -1,4 +1,5 @@
 PODS:
+  - flutterModule (0.1.0)
   - ReactiveCocoa (10.3.0):
     - ReactiveSwift (~> 6.2)
   - ReactiveSwift (6.7.0)
@@ -8,6 +9,7 @@ PODS:
   - YYKit/no-arc (1.0.9)
 
 DEPENDENCIES:
+  - flutterModule (from `../flutterModule`)
   - ReactiveCocoa (~> 10.1)
   - TYPagerController
   - YYKit
@@ -19,12 +21,17 @@ SPEC REPOS:
     - TYPagerController
     - YYKit
 
+EXTERNAL SOURCES:
+  flutterModule:
+    :path: "../flutterModule"
+
 SPEC CHECKSUMS:
+  flutterModule: 5f3b3c0eb2f94b7673b81f0f0717debdcfb5aac7
   ReactiveCocoa: 083ae559e6f588ce519cab412ea119b431c26a24
   ReactiveSwift: 208201d6ecc9734196d147aa76bc1f24b1b821fe
   TYPagerController: 262556ecef99986d26ed77fb1288a198ed42f4af
   YYKit: 7cda43304a8dc3696c449041e2cb3107b4e236e7
 
-PODFILE CHECKSUM: 0e07ba3b738743344598c050380d846900122210
+PODFILE CHECKSUM: 99778f0825cd3072717a931f420b8518c9d99c69
 
 COCOAPODS: 1.10.2

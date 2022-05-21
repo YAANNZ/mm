@@ -6,6 +6,8 @@
 //
 
 #import "ZMMTabBarController.h"
+#import "ZMMAudioViewController.h"
+#import "mm-Swift.h"
 
 @interface ZMMTabBarController ()
 
@@ -16,6 +18,14 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    UINavigationController *audioNav = [[UINavigationController alloc] initWithRootViewController:[[ZMMAudioViewController alloc] init]];
+    audioNav.title = @"Audio";
+    [self addChildViewController:audioNav];
+    
+    UINavigationController *videoNav = [[UINavigationController alloc] initWithRootViewController:[[ZMMVideoViewController alloc] init]];
+    videoNav.title = @"Video";
+    [self addChildViewController:videoNav];
 }
 
 /*

@@ -13,6 +13,7 @@ target 'mm' do
 	pod 'TYPagerController'
 	pod 'YYKit'
 	pod 'ReactiveCocoa', '~> 10.1'
+	pod 'flutterModule', :path => '../flutterModule'
   end
 
   target 'mmUITests' do
