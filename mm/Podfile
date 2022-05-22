@@ -4,16 +4,15 @@
 target 'mm' do
   # Comment the next line if you don't want to use dynamic frameworks
   use_frameworks!
-
   # Pods for mm
+  pod 'TYPagerController'
+  pod 'YYKit'
+  pod 'ReactiveCocoa', '~> 10.1'
+  pod 'flutterModule', :path => '../flutterModule'
 
   target 'mmTests' do
     inherit! :search_paths
     # Pods for testing
-	pod 'TYPagerController'
-	pod 'YYKit'
-	pod 'ReactiveCocoa', '~> 10.1'
-	pod 'flutterModule', :path => '../flutterModule'
   end
 
   target 'mmUITests' do

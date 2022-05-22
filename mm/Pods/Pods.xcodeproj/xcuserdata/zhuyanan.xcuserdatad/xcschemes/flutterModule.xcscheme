@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "C50817E202E39732E2F6690DAF1A0824"
-               BuildableName = "flutterModule.framework"
+               BuildableName = "flutterModule"
                BlueprintName = "flutterModule"
                ReferencedContainer = "container:Pods.xcodeproj">
             </BuildableReference>

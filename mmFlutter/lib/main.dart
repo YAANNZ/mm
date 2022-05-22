@@ -1,6 +1,31 @@
 import 'package:flutter/material.dart';
 
-void main() => runApp(MyApp());
+void main() => runApp(_widgetForRoute(window.defaultRouteName));
+Widget _widgetForRoute(String url) {
+  // route名称
+  String route =  url.indexOf('?') == -1 ? url : url.substring(0, url.indexOf('?'));
+// 参数Json字符串
+  String paramsJson =  url.indexOf('?') == -1 ? '{}' : url.substring(url.indexOf('?') + 1);
+  Map<String, dynamic> mapJson = json.decode(paramsJson);  String message = mapJson["message"];
+// 解析参数
+  switch (route) {
+    case 'route1':
+      return MaterialApp(
+        home: Scaffold(
+          appBar: AppBar(
+            title: Text('Flutter页面'),
+          ),
+          body: Center(child: Text('页面名字: $route',style: TextStyle(color: Colors.red), textDirection: TextDirection.ltr),),
+        ),
+      );
+    default:
+      return Center(
+        child: Text('Unknown route: $route',style: TextStyle(color: Colors.red), textDirection: TextDirection.ltr),
+      );
+  }}
+
+
+// void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
   // This widget is the root of your application.

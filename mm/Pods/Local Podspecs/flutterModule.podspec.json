@@ -18,14 +18,10 @@
   "platforms": {
     "ios": "9.0"
   },
-  "source_files": "flutterModule/Classes/**/*",
   "static_framework": true,
   "ios": {
     "vendored_frameworks": [
-      "ios_frameworks/Flutter.framework",
-      "ios_frameworks/App.framework",
-      "ios_frameworks/shared_preferences.framework",
-      "ios_frameworks/FlutterPluginRegistrant.framework"
+      "ios_frameworks/*.framework"
     ]
   }
 }

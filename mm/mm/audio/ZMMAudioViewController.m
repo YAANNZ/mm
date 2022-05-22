@@ -6,7 +6,7 @@
 //
 
 #import "ZMMAudioViewController.h"
-//#import "ZMMVideoViewController"
+#import "TYPagerController.h"
 
 @interface ZMMAudioViewController ()
 
@@ -19,6 +19,8 @@
     // Do any additional setup after loading the view from its nib.
     
     self.title = @"Audio";
+    
+    TYPagerController *vc = [[TYPagerController alloc] init];
 }
 
 /*
