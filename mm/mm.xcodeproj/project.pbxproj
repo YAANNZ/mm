@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		3703DF912B2AF59A403BEC09 /* Pods_mm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 214CCAD6167BEC2568074A94 /* Pods_mm.framework */; };
+		7C8439FD28B5FF610086861A /* ZMMTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C8439FC28B5FF610086861A /* ZMMTextField.m */; };
 		B7F62E1A590185567E6D04C0 /* Pods_mm_mmUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 83987029DAF87542A7D17EA4 /* Pods_mm_mmUITests.framework */; };
 		D3BCE0E8AEE610888FF8D93C /* Pods_mmTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0B2BB92D8DB9B28F4923F8A5 /* Pods_mmTests.framework */; };
 		D7392F18282AA23200E5B148 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D7392F17282AA23200E5B148 /* AppDelegate.m */; };
@@ -51,6 +52,8 @@
 		1BBB91AEEB0251F707A52BA5 /* Pods-mm-mmUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-mm-mmUITests.release.xcconfig"; path = "Target Support Files/Pods-mm-mmUITests/Pods-mm-mmUITests.release.xcconfig"; sourceTree = "<group>"; };
 		214CCAD6167BEC2568074A94 /* Pods_mm.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_mm.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		733222A2A59980B185A24B28 /* Pods-mm.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-mm.debug.xcconfig"; path = "Target Support Files/Pods-mm/Pods-mm.debug.xcconfig"; sourceTree = "<group>"; };
+		7C8439FB28B5FF610086861A /* ZMMTextField.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZMMTextField.h; sourceTree = "<group>"; };
+		7C8439FC28B5FF610086861A /* ZMMTextField.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZMMTextField.m; sourceTree = "<group>"; };
 		83987029DAF87542A7D17EA4 /* Pods_mm_mmUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_mm_mmUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9350231A3F2C8898C6BF1078 /* Pods-mmTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-mmTests.debug.xcconfig"; path = "Target Support Files/Pods-mmTests/Pods-mmTests.debug.xcconfig"; sourceTree = "<group>"; };
 		B8ED2661F74D3A429787094C /* Pods-mm.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-mm.release.xcconfig"; path = "Target Support Files/Pods-mm/Pods-mm.release.xcconfig"; sourceTree = "<group>"; };
@@ -113,6 +116,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7C8439FA28B5FF020086861A /* ToolCommon */ = {
+			isa = PBXGroup;
+			children = (
+				7C8439FB28B5FF610086861A /* ZMMTextField.h */,
+				7C8439FC28B5FF610086861A /* ZMMTextField.m */,
+			);
+			path = ToolCommon;
+			sourceTree = "<group>";
+		};
 		C71088ACC4A7DE3AEF5A35F9 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -151,6 +163,7 @@
 		D7392F15282AA23200E5B148 /* mm */ = {
 			isa = PBXGroup;
 			children = (
+				7C8439FA28B5FF020086861A /* ToolCommon */,
 				D7DD02B22831459C00676ACE /* audio */,
 				D7DD02B32831459C00676ACE /* video */,
 				D7DD02B42831459C00676ACE /* reader */,
@@ -478,6 +491,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7C8439FD28B5FF610086861A /* ZMMTextField.m in Sources */,
 				D7DD02C2283297B500676ACE /* ZMMTabBarController.m in Sources */,
 				D7392F1E282AA23200E5B148 /* ViewController.m in Sources */,
 				D7392F18282AA23200E5B148 /* AppDelegate.m in Sources */,
