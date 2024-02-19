@@ -1,9 +1,6 @@
 ${PODS_ROOT}/Target Support Files/Pods-mm-mmUITests/Pods-mm-mmUITests-frameworks.sh
+${BUILT_PRODUCTS_DIR}/FMDB/FMDB.framework
 ${BUILT_PRODUCTS_DIR}/Masonry/Masonry.framework
 ${BUILT_PRODUCTS_DIR}/ReactiveCocoa/ReactiveCocoa.framework
 ${BUILT_PRODUCTS_DIR}/ReactiveSwift/ReactiveSwift.framework
 ${BUILT_PRODUCTS_DIR}/TYPagerController/TYPagerController.framework
-${BUILT_PRODUCTS_DIR}/YYKit/YYKit.framework
-${PODS_ROOT}/../../flutterModule/ios_frameworks/App.framework
-${PODS_ROOT}/../../flutterModule/ios_frameworks/Flutter.framework
-${PODS_ROOT}/../../flutterModule/ios_frameworks/shared_preferences.framework

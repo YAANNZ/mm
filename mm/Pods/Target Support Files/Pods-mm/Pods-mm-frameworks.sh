@@ -175,24 +175,18 @@ code_sign_if_enabled() {
 }
 
 if [[ "$CONFIGURATION" == "Debug" ]]; then
+  install_framework "${BUILT_PRODUCTS_DIR}/FMDB/FMDB.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/Masonry/Masonry.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/ReactiveCocoa/ReactiveCocoa.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/ReactiveSwift/ReactiveSwift.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/TYPagerController/TYPagerController.framework"
-  install_framework "${BUILT_PRODUCTS_DIR}/YYKit/YYKit.framework"
-  install_framework "${PODS_ROOT}/../../flutterModule/ios_frameworks/App.framework"
-  install_framework "${PODS_ROOT}/../../flutterModule/ios_frameworks/Flutter.framework"
-  install_framework "${PODS_ROOT}/../../flutterModule/ios_frameworks/shared_preferences.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
+  install_framework "${BUILT_PRODUCTS_DIR}/FMDB/FMDB.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/Masonry/Masonry.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/ReactiveCocoa/ReactiveCocoa.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/ReactiveSwift/ReactiveSwift.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/TYPagerController/TYPagerController.framework"
-  install_framework "${BUILT_PRODUCTS_DIR}/YYKit/YYKit.framework"
-  install_framework "${PODS_ROOT}/../../flutterModule/ios_frameworks/App.framework"
-  install_framework "${PODS_ROOT}/../../flutterModule/ios_frameworks/Flutter.framework"
-  install_framework "${PODS_ROOT}/../../flutterModule/ios_frameworks/shared_preferences.framework"
 fi
 if [ "${COCOAPODS_PARALLEL_CODE_SIGN}" == "true" ]; then
   wait
