@@ -1,4 +1,5 @@
 ${PODS_ROOT}/Target Support Files/Pods-mm-mmUITests/Pods-mm-mmUITests-frameworks.sh
+${BUILT_PRODUCTS_DIR}/FMDB/FMDB.framework
 ${BUILT_PRODUCTS_DIR}/Masonry/Masonry.framework
 ${BUILT_PRODUCTS_DIR}/ReactiveCocoa/ReactiveCocoa.framework
 ${BUILT_PRODUCTS_DIR}/ReactiveSwift/ReactiveSwift.framework

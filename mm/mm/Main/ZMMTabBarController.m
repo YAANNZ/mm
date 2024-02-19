@@ -8,9 +8,7 @@
 #import "ZMMTabBarController.h"
 #import "ZMMAudioViewController.h"
 #import "mm-Swift.h"
-
-
-//#import "Flutter/Flutter.h"
+#import "Flutter/Flutter.h"
 
 @interface ZMMTabBarController ()
 
@@ -22,7 +20,10 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    
+    ZMMScoreVC *scoreVC = [[ZMMScoreVC alloc] init];
+    UINavigationController *scoreNav = [[UINavigationController alloc] initWithRootViewController:scoreVC];
+    scoreVC.title = @"Score";
+    [self addChildViewController:scoreNav];
     
     UINavigationController *audioNav = [[UINavigationController alloc] initWithRootViewController:[[ZMMAudioViewController alloc] init]];
     audioNav.title = @"Audio";

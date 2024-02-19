@@ -148,12 +148,12 @@
 		7520D4542B835BAD00C1DAFF /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				7520D4592B835BAD00C1DAFF /* ZMMTabBarController.h */,
 				7520D4552B835BAD00C1DAFF /* ZMMTabBarController.m */,
 				7520D4562B835BAD00C1DAFF /* AppDelegate.h */,
-				7520D4572B835BAD00C1DAFF /* SceneDelegate.m */,
 				7520D4582B835BAD00C1DAFF /* AppDelegate.m */,
-				7520D4592B835BAD00C1DAFF /* ZMMTabBarController.h */,
 				7520D45A2B835BAD00C1DAFF /* SceneDelegate.h */,
+				7520D4572B835BAD00C1DAFF /* SceneDelegate.m */,
 			);
 			path = Main;
 			sourceTree = "<group>";
