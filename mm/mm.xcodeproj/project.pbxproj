@@ -8,14 +8,24 @@
 
 /* Begin PBXBuildFile section */
 		3703DF912B2AF59A403BEC09 /* Pods_mm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 214CCAD6167BEC2568074A94 /* Pods_mm.framework */; };
+		7520D44E2B835B5000C1DAFF /* ZMMScoreVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7520D44C2B835B5000C1DAFF /* ZMMScoreVC.swift */; };
+		7520D44F2B835B5000C1DAFF /* ZMMScoreVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7520D44D2B835B5000C1DAFF /* ZMMScoreVC.xib */; };
+		7520D4682B835BAD00C1DAFF /* ZMMVideoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7520D4512B835BAD00C1DAFF /* ZMMVideoViewController.swift */; };
+		7520D4692B835BAD00C1DAFF /* ZMMVideoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7520D4522B835BAD00C1DAFF /* ZMMVideoViewController.xib */; };
+		7520D46A2B835BAD00C1DAFF /* ZMMTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7520D4552B835BAD00C1DAFF /* ZMMTabBarController.m */; };
+		7520D46B2B835BAD00C1DAFF /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7520D4572B835BAD00C1DAFF /* SceneDelegate.m */; };
+		7520D46C2B835BAD00C1DAFF /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7520D4582B835BAD00C1DAFF /* AppDelegate.m */; };
+		7520D46D2B835BAD00C1DAFF /* ZMMAudioContentVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7520D45C2B835BAD00C1DAFF /* ZMMAudioContentVC.xib */; };
+		7520D46E2B835BAD00C1DAFF /* ZMMAudioViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7520D45D2B835BAD00C1DAFF /* ZMMAudioViewController.m */; };
+		7520D46F2B835BAD00C1DAFF /* ZMMAudioViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7520D45F2B835BAD00C1DAFF /* ZMMAudioViewController.xib */; };
+		7520D4702B835BAD00C1DAFF /* ZMMAudioContentVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 7520D4602B835BAD00C1DAFF /* ZMMAudioContentVC.m */; };
+		7520D4712B835BAD00C1DAFF /* ZMMReaderVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7520D4632B835BAD00C1DAFF /* ZMMReaderVC.xib */; };
+		7520D4722B835BAD00C1DAFF /* ZMMReaderVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7520D4642B835BAD00C1DAFF /* ZMMReaderVC.swift */; };
+		7520D4732B835BAD00C1DAFF /* ZMMPhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7520D4662B835BAD00C1DAFF /* ZMMPhotoViewController.swift */; };
+		7520D4742B835BAD00C1DAFF /* ZMMPhotoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7520D4672B835BAD00C1DAFF /* ZMMPhotoViewController.xib */; };
 		7C8439FD28B5FF610086861A /* ZMMTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C8439FC28B5FF610086861A /* ZMMTextField.m */; };
 		B7F62E1A590185567E6D04C0 /* Pods_mm_mmUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 83987029DAF87542A7D17EA4 /* Pods_mm_mmUITests.framework */; };
 		D3BCE0E8AEE610888FF8D93C /* Pods_mmTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0B2BB92D8DB9B28F4923F8A5 /* Pods_mmTests.framework */; };
-		D708D8F02879780A0017331B /* ZMMAudioContentVC.m in Sources */ = {isa = PBXBuildFile; fileRef = D708D8EE2879780A0017331B /* ZMMAudioContentVC.m */; };
-		D708D8F12879780A0017331B /* ZMMAudioContentVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = D708D8EF2879780A0017331B /* ZMMAudioContentVC.xib */; };
-		D7392F18282AA23200E5B148 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D7392F17282AA23200E5B148 /* AppDelegate.m */; };
-		D7392F1B282AA23200E5B148 /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D7392F1A282AA23200E5B148 /* SceneDelegate.m */; };
-		D7392F1E282AA23200E5B148 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D7392F1D282AA23200E5B148 /* ViewController.m */; };
 		D7392F21282AA23200E5B148 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D7392F1F282AA23200E5B148 /* Main.storyboard */; };
 		D7392F23282AA23700E5B148 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D7392F22282AA23700E5B148 /* Assets.xcassets */; };
 		D7392F26282AA23700E5B148 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D7392F24282AA23700E5B148 /* LaunchScreen.storyboard */; };
@@ -23,13 +33,6 @@
 		D7392F33282AA23700E5B148 /* mmTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D7392F32282AA23700E5B148 /* mmTests.m */; };
 		D7392F3D282AA23700E5B148 /* mmUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = D7392F3C282AA23700E5B148 /* mmUITests.m */; };
 		D7392F3F282AA23700E5B148 /* mmUITestsLaunchTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D7392F3E282AA23700E5B148 /* mmUITestsLaunchTests.m */; };
-		D7A9D5742838B5D2001F08AE /* ZMMPhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7A9D5722838B5D2001F08AE /* ZMMPhotoViewController.swift */; };
-		D7A9D5752838B5D2001F08AE /* ZMMPhotoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D7A9D5732838B5D2001F08AE /* ZMMPhotoViewController.xib */; };
-		D7DD02B92831460C00676ACE /* ZMMVideoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7DD02B72831460C00676ACE /* ZMMVideoViewController.swift */; };
-		D7DD02BA2831460C00676ACE /* ZMMVideoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D7DD02B82831460C00676ACE /* ZMMVideoViewController.xib */; };
-		D7DD02BE2832976E00676ACE /* ZMMAudioViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D7DD02BC2832976E00676ACE /* ZMMAudioViewController.m */; };
-		D7DD02BF2832976E00676ACE /* ZMMAudioViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D7DD02BD2832976E00676ACE /* ZMMAudioViewController.xib */; };
-		D7DD02C2283297B500676ACE /* ZMMTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = D7DD02C1283297B500676ACE /* ZMMTabBarController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,22 +57,34 @@
 		1BBB91AEEB0251F707A52BA5 /* Pods-mm-mmUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-mm-mmUITests.release.xcconfig"; path = "Target Support Files/Pods-mm-mmUITests/Pods-mm-mmUITests.release.xcconfig"; sourceTree = "<group>"; };
 		214CCAD6167BEC2568074A94 /* Pods_mm.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_mm.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		733222A2A59980B185A24B28 /* Pods-mm.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-mm.debug.xcconfig"; path = "Target Support Files/Pods-mm/Pods-mm.debug.xcconfig"; sourceTree = "<group>"; };
+		7520D44C2B835B5000C1DAFF /* ZMMScoreVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZMMScoreVC.swift; sourceTree = "<group>"; };
+		7520D44D2B835B5000C1DAFF /* ZMMScoreVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ZMMScoreVC.xib; sourceTree = "<group>"; };
+		7520D4512B835BAD00C1DAFF /* ZMMVideoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZMMVideoViewController.swift; sourceTree = "<group>"; };
+		7520D4522B835BAD00C1DAFF /* ZMMVideoViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ZMMVideoViewController.xib; sourceTree = "<group>"; };
+		7520D4532B835BAD00C1DAFF /* mm-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "mm-Bridging-Header.h"; sourceTree = "<group>"; };
+		7520D4552B835BAD00C1DAFF /* ZMMTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZMMTabBarController.m; sourceTree = "<group>"; };
+		7520D4562B835BAD00C1DAFF /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		7520D4572B835BAD00C1DAFF /* SceneDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SceneDelegate.m; sourceTree = "<group>"; };
+		7520D4582B835BAD00C1DAFF /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		7520D4592B835BAD00C1DAFF /* ZMMTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZMMTabBarController.h; sourceTree = "<group>"; };
+		7520D45A2B835BAD00C1DAFF /* SceneDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SceneDelegate.h; sourceTree = "<group>"; };
+		7520D45C2B835BAD00C1DAFF /* ZMMAudioContentVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ZMMAudioContentVC.xib; sourceTree = "<group>"; };
+		7520D45D2B835BAD00C1DAFF /* ZMMAudioViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZMMAudioViewController.m; sourceTree = "<group>"; };
+		7520D45E2B835BAD00C1DAFF /* ZMMAudioContentVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZMMAudioContentVC.h; sourceTree = "<group>"; };
+		7520D45F2B835BAD00C1DAFF /* ZMMAudioViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ZMMAudioViewController.xib; sourceTree = "<group>"; };
+		7520D4602B835BAD00C1DAFF /* ZMMAudioContentVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZMMAudioContentVC.m; sourceTree = "<group>"; };
+		7520D4612B835BAD00C1DAFF /* ZMMAudioViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZMMAudioViewController.h; sourceTree = "<group>"; };
+		7520D4632B835BAD00C1DAFF /* ZMMReaderVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ZMMReaderVC.xib; sourceTree = "<group>"; };
+		7520D4642B835BAD00C1DAFF /* ZMMReaderVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZMMReaderVC.swift; sourceTree = "<group>"; };
+		7520D4662B835BAD00C1DAFF /* ZMMPhotoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZMMPhotoViewController.swift; sourceTree = "<group>"; };
+		7520D4672B835BAD00C1DAFF /* ZMMPhotoViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ZMMPhotoViewController.xib; sourceTree = "<group>"; };
 		7C8439FB28B5FF610086861A /* ZMMTextField.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZMMTextField.h; sourceTree = "<group>"; };
 		7C8439FC28B5FF610086861A /* ZMMTextField.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZMMTextField.m; sourceTree = "<group>"; };
 		83987029DAF87542A7D17EA4 /* Pods_mm_mmUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_mm_mmUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9350231A3F2C8898C6BF1078 /* Pods-mmTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-mmTests.debug.xcconfig"; path = "Target Support Files/Pods-mmTests/Pods-mmTests.debug.xcconfig"; sourceTree = "<group>"; };
 		B8ED2661F74D3A429787094C /* Pods-mm.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-mm.release.xcconfig"; path = "Target Support Files/Pods-mm/Pods-mm.release.xcconfig"; sourceTree = "<group>"; };
 		C85EB61A8855FF8C9241D1A5 /* Pods-mm-mmUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-mm-mmUITests.debug.xcconfig"; path = "Target Support Files/Pods-mm-mmUITests/Pods-mm-mmUITests.debug.xcconfig"; sourceTree = "<group>"; };
-		D708D8ED2879780A0017331B /* ZMMAudioContentVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZMMAudioContentVC.h; sourceTree = "<group>"; };
-		D708D8EE2879780A0017331B /* ZMMAudioContentVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZMMAudioContentVC.m; sourceTree = "<group>"; };
-		D708D8EF2879780A0017331B /* ZMMAudioContentVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ZMMAudioContentVC.xib; sourceTree = "<group>"; };
 		D7392F13282AA23200E5B148 /* mm.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = mm.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		D7392F16282AA23200E5B148 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
-		D7392F17282AA23200E5B148 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		D7392F19282AA23200E5B148 /* SceneDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SceneDelegate.h; sourceTree = "<group>"; };
-		D7392F1A282AA23200E5B148 /* SceneDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SceneDelegate.m; sourceTree = "<group>"; };
-		D7392F1C282AA23200E5B148 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		D7392F1D282AA23200E5B148 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		D7392F20282AA23200E5B148 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		D7392F22282AA23700E5B148 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D7392F25282AA23700E5B148 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -80,16 +95,6 @@
 		D7392F38282AA23700E5B148 /* mmUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = mmUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D7392F3C282AA23700E5B148 /* mmUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = mmUITests.m; sourceTree = "<group>"; };
 		D7392F3E282AA23700E5B148 /* mmUITestsLaunchTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = mmUITestsLaunchTests.m; sourceTree = "<group>"; };
-		D7A9D5722838B5D2001F08AE /* ZMMPhotoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZMMPhotoViewController.swift; sourceTree = "<group>"; };
-		D7A9D5732838B5D2001F08AE /* ZMMPhotoViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ZMMPhotoViewController.xib; sourceTree = "<group>"; };
-		D7DD02B62831460C00676ACE /* mm-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "mm-Bridging-Header.h"; sourceTree = "<group>"; };
-		D7DD02B72831460C00676ACE /* ZMMVideoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZMMVideoViewController.swift; sourceTree = "<group>"; };
-		D7DD02B82831460C00676ACE /* ZMMVideoViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ZMMVideoViewController.xib; sourceTree = "<group>"; };
-		D7DD02BB2832976E00676ACE /* ZMMAudioViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZMMAudioViewController.h; sourceTree = "<group>"; };
-		D7DD02BC2832976E00676ACE /* ZMMAudioViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZMMAudioViewController.m; sourceTree = "<group>"; };
-		D7DD02BD2832976E00676ACE /* ZMMAudioViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ZMMAudioViewController.xib; sourceTree = "<group>"; };
-		D7DD02C0283297B500676ACE /* ZMMTabBarController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZMMTabBarController.h; sourceTree = "<group>"; };
-		D7DD02C1283297B500676ACE /* ZMMTabBarController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZMMTabBarController.m; sourceTree = "<group>"; };
 		DE5775028F79AE659089C523 /* Pods-mmTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-mmTests.release.xcconfig"; path = "Target Support Files/Pods-mmTests/Pods-mmTests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -121,6 +126,69 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7520D44B2B835B3C00C1DAFF /* Score */ = {
+			isa = PBXGroup;
+			children = (
+				7520D44C2B835B5000C1DAFF /* ZMMScoreVC.swift */,
+				7520D44D2B835B5000C1DAFF /* ZMMScoreVC.xib */,
+			);
+			path = Score;
+			sourceTree = "<group>";
+		};
+		7520D4502B835BAD00C1DAFF /* Video */ = {
+			isa = PBXGroup;
+			children = (
+				7520D4512B835BAD00C1DAFF /* ZMMVideoViewController.swift */,
+				7520D4522B835BAD00C1DAFF /* ZMMVideoViewController.xib */,
+				7520D4532B835BAD00C1DAFF /* mm-Bridging-Header.h */,
+			);
+			path = Video;
+			sourceTree = "<group>";
+		};
+		7520D4542B835BAD00C1DAFF /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				7520D4552B835BAD00C1DAFF /* ZMMTabBarController.m */,
+				7520D4562B835BAD00C1DAFF /* AppDelegate.h */,
+				7520D4572B835BAD00C1DAFF /* SceneDelegate.m */,
+				7520D4582B835BAD00C1DAFF /* AppDelegate.m */,
+				7520D4592B835BAD00C1DAFF /* ZMMTabBarController.h */,
+				7520D45A2B835BAD00C1DAFF /* SceneDelegate.h */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		7520D45B2B835BAD00C1DAFF /* Audio */ = {
+			isa = PBXGroup;
+			children = (
+				7520D45C2B835BAD00C1DAFF /* ZMMAudioContentVC.xib */,
+				7520D45D2B835BAD00C1DAFF /* ZMMAudioViewController.m */,
+				7520D45E2B835BAD00C1DAFF /* ZMMAudioContentVC.h */,
+				7520D45F2B835BAD00C1DAFF /* ZMMAudioViewController.xib */,
+				7520D4602B835BAD00C1DAFF /* ZMMAudioContentVC.m */,
+				7520D4612B835BAD00C1DAFF /* ZMMAudioViewController.h */,
+			);
+			path = Audio;
+			sourceTree = "<group>";
+		};
+		7520D4622B835BAD00C1DAFF /* Reader */ = {
+			isa = PBXGroup;
+			children = (
+				7520D4632B835BAD00C1DAFF /* ZMMReaderVC.xib */,
+				7520D4642B835BAD00C1DAFF /* ZMMReaderVC.swift */,
+			);
+			path = Reader;
+			sourceTree = "<group>";
+		};
+		7520D4652B835BAD00C1DAFF /* Photo */ = {
+			isa = PBXGroup;
+			children = (
+				7520D4662B835BAD00C1DAFF /* ZMMPhotoViewController.swift */,
+				7520D4672B835BAD00C1DAFF /* ZMMPhotoViewController.xib */,
+			);
+			path = Photo;
+			sourceTree = "<group>";
+		};
 		7C8439FA28B5FF020086861A /* ToolCommon */ = {
 			isa = PBXGroup;
 			children = (
@@ -168,19 +236,13 @@
 		D7392F15282AA23200E5B148 /* mm */ = {
 			isa = PBXGroup;
 			children = (
+				7520D45B2B835BAD00C1DAFF /* Audio */,
+				7520D4542B835BAD00C1DAFF /* Main */,
+				7520D4652B835BAD00C1DAFF /* Photo */,
+				7520D4622B835BAD00C1DAFF /* Reader */,
+				7520D4502B835BAD00C1DAFF /* Video */,
+				7520D44B2B835B3C00C1DAFF /* Score */,
 				7C8439FA28B5FF020086861A /* ToolCommon */,
-				D7DD02B22831459C00676ACE /* audio */,
-				D7DD02B32831459C00676ACE /* video */,
-				D7DD02B42831459C00676ACE /* reader */,
-				D7DD02B52831459C00676ACE /* photo */,
-				D7392F16282AA23200E5B148 /* AppDelegate.h */,
-				D7392F17282AA23200E5B148 /* AppDelegate.m */,
-				D7392F19282AA23200E5B148 /* SceneDelegate.h */,
-				D7392F1A282AA23200E5B148 /* SceneDelegate.m */,
-				D7392F1C282AA23200E5B148 /* ViewController.h */,
-				D7392F1D282AA23200E5B148 /* ViewController.m */,
-				D7DD02C0283297B500676ACE /* ZMMTabBarController.h */,
-				D7DD02C1283297B500676ACE /* ZMMTabBarController.m */,
 				D7392F1F282AA23200E5B148 /* Main.storyboard */,
 				D7392F22282AA23700E5B148 /* Assets.xcassets */,
 				D7392F24282AA23700E5B148 /* LaunchScreen.storyboard */,
@@ -205,45 +267,6 @@
 				D7392F3E282AA23700E5B148 /* mmUITestsLaunchTests.m */,
 			);
 			path = mmUITests;
-			sourceTree = "<group>";
-		};
-		D7DD02B22831459C00676ACE /* audio */ = {
-			isa = PBXGroup;
-			children = (
-				D7DD02BB2832976E00676ACE /* ZMMAudioViewController.h */,
-				D7DD02BC2832976E00676ACE /* ZMMAudioViewController.m */,
-				D7DD02BD2832976E00676ACE /* ZMMAudioViewController.xib */,
-				D708D8ED2879780A0017331B /* ZMMAudioContentVC.h */,
-				D708D8EE2879780A0017331B /* ZMMAudioContentVC.m */,
-				D708D8EF2879780A0017331B /* ZMMAudioContentVC.xib */,
-			);
-			path = audio;
-			sourceTree = "<group>";
-		};
-		D7DD02B32831459C00676ACE /* video */ = {
-			isa = PBXGroup;
-			children = (
-				D7DD02B72831460C00676ACE /* ZMMVideoViewController.swift */,
-				D7DD02B82831460C00676ACE /* ZMMVideoViewController.xib */,
-				D7DD02B62831460C00676ACE /* mm-Bridging-Header.h */,
-			);
-			path = video;
-			sourceTree = "<group>";
-		};
-		D7DD02B42831459C00676ACE /* reader */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = reader;
-			sourceTree = "<group>";
-		};
-		D7DD02B52831459C00676ACE /* photo */ = {
-			isa = PBXGroup;
-			children = (
-				D7A9D5722838B5D2001F08AE /* ZMMPhotoViewController.swift */,
-				D7A9D5732838B5D2001F08AE /* ZMMPhotoViewController.xib */,
-			);
-			path = photo;
 			sourceTree = "<group>";
 		};
 		FCB8108EFD7319E55BCCB1D1 /* Frameworks */ = {
@@ -368,12 +391,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D7A9D5752838B5D2001F08AE /* ZMMPhotoViewController.xib in Resources */,
+				7520D4742B835BAD00C1DAFF /* ZMMPhotoViewController.xib in Resources */,
+				7520D4712B835BAD00C1DAFF /* ZMMReaderVC.xib in Resources */,
+				7520D44F2B835B5000C1DAFF /* ZMMScoreVC.xib in Resources */,
 				D7392F26282AA23700E5B148 /* LaunchScreen.storyboard in Resources */,
-				D7DD02BF2832976E00676ACE /* ZMMAudioViewController.xib in Resources */,
-				D7DD02BA2831460C00676ACE /* ZMMVideoViewController.xib in Resources */,
+				7520D46D2B835BAD00C1DAFF /* ZMMAudioContentVC.xib in Resources */,
+				7520D4692B835BAD00C1DAFF /* ZMMVideoViewController.xib in Resources */,
 				D7392F23282AA23700E5B148 /* Assets.xcassets in Resources */,
-				D708D8F12879780A0017331B /* ZMMAudioContentVC.xib in Resources */,
+				7520D46F2B835BAD00C1DAFF /* ZMMAudioViewController.xib in Resources */,
 				D7392F21282AA23200E5B148 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -522,16 +547,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7520D4732B835BAD00C1DAFF /* ZMMPhotoViewController.swift in Sources */,
+				7520D46E2B835BAD00C1DAFF /* ZMMAudioViewController.m in Sources */,
+				7520D4702B835BAD00C1DAFF /* ZMMAudioContentVC.m in Sources */,
+				7520D44E2B835B5000C1DAFF /* ZMMScoreVC.swift in Sources */,
+				7520D46B2B835BAD00C1DAFF /* SceneDelegate.m in Sources */,
+				7520D46A2B835BAD00C1DAFF /* ZMMTabBarController.m in Sources */,
+				7520D4682B835BAD00C1DAFF /* ZMMVideoViewController.swift in Sources */,
+				7520D4722B835BAD00C1DAFF /* ZMMReaderVC.swift in Sources */,
 				7C8439FD28B5FF610086861A /* ZMMTextField.m in Sources */,
-				D7DD02C2283297B500676ACE /* ZMMTabBarController.m in Sources */,
-				D708D8F02879780A0017331B /* ZMMAudioContentVC.m in Sources */,
-				D7392F1E282AA23200E5B148 /* ViewController.m in Sources */,
-				D7392F18282AA23200E5B148 /* AppDelegate.m in Sources */,
-				D7DD02BE2832976E00676ACE /* ZMMAudioViewController.m in Sources */,
-				D7A9D5742838B5D2001F08AE /* ZMMPhotoViewController.swift in Sources */,
-				D7DD02B92831460C00676ACE /* ZMMVideoViewController.swift in Sources */,
 				D7392F29282AA23700E5B148 /* main.m in Sources */,
-				D7392F1B282AA23200E5B148 /* SceneDelegate.m in Sources */,
+				7520D46C2B835BAD00C1DAFF /* AppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
