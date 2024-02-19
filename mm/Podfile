@@ -9,6 +9,7 @@ target 'mm' do
   pod 'YYKit'
   pod 'ReactiveCocoa', '~> 10.1'
   pod 'flutterModule', :path => '../flutterModule'
+  pod 'Masonry'
 
   target 'mmTests' do
     inherit! :search_paths
