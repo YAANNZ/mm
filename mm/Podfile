@@ -6,9 +6,9 @@ target 'mm' do
   use_frameworks!
   # Pods for mm
   pod 'TYPagerController'
-  pod 'YYKit'
+#  pod 'YYKit'
   pod 'ReactiveCocoa', '~> 10.1'
-  pod 'flutterModule', :path => '../flutterModule'
+#  pod 'flutterModule', :path => '../flutterModule'
   pod 'Masonry'
 
   target 'mmTests' do

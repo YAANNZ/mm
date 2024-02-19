@@ -10,7 +10,7 @@
 #import "mm-Swift.h"
 
 
-#import "Flutter/Flutter.h"
+//#import "Flutter/Flutter.h"
 
 @interface ZMMTabBarController ()
 
@@ -30,12 +30,12 @@
     [self addChildViewController:videoNav];
     
     // 1.初始化 FlutterViewController
-    FlutterViewController *readerVC = [[FlutterViewController alloc] initWithProject:nil initialRoute:@"route1?{\"message\":\"嗨，本文案来自第一个原生页面，将在Flutter页面看到我\"}" nibName:nil bundle:nil];
-    // 为FlutterViewController指定路由以及路由携带的参数
-//    [readerVC setInitialRoute:@"route1?{\"message\":\"嗨，本文案来自第一个原生页面，将在Flutter页面看到我\"}"];
-    UINavigationController *readerNav = [[UINavigationController alloc] initWithRootViewController:readerVC];
-    readerNav.title = @"Reader";
-    [self addChildViewController:readerNav];
+//    FlutterViewController *readerVC = [[FlutterViewController alloc] initWithProject:nil initialRoute:@"route1?{\"message\":\"嗨，本文案来自第一个原生页面，将在Flutter页面看到我\"}" nibName:nil bundle:nil];
+//    // 为FlutterViewController指定路由以及路由携带的参数
+////    [readerVC setInitialRoute:@"route1?{\"message\":\"嗨，本文案来自第一个原生页面，将在Flutter页面看到我\"}"];
+//    UINavigationController *readerNav = [[UINavigationController alloc] initWithRootViewController:readerVC];
+//    readerNav.title = @"Reader";
+//    [self addChildViewController:readerNav];
     
     // 2.初始化 FlutterEngine
 //    FlutterEngine *flutterEngine = [[FlutterEngine alloc] initWithName:@"FirstFlutterViewController"];
