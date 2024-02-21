@@ -23,6 +23,12 @@
 		7520D4722B835BAD00C1DAFF /* ZMMReaderVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7520D4642B835BAD00C1DAFF /* ZMMReaderVC.swift */; };
 		7520D4732B835BAD00C1DAFF /* ZMMPhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7520D4662B835BAD00C1DAFF /* ZMMPhotoViewController.swift */; };
 		7520D4742B835BAD00C1DAFF /* ZMMPhotoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7520D4672B835BAD00C1DAFF /* ZMMPhotoViewController.xib */; };
+		7520D4782B863BFE00C1DAFF /* ZMMLoginMainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7520D4762B863BFE00C1DAFF /* ZMMLoginMainVC.swift */; };
+		7520D4792B863BFE00C1DAFF /* ZMMLoginMainVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7520D4772B863BFE00C1DAFF /* ZMMLoginMainVC.xib */; };
+		7520D47E2B863C4400C1DAFF /* ZMMSignInVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7520D47C2B863C4400C1DAFF /* ZMMSignInVC.swift */; };
+		7520D47F2B863C4400C1DAFF /* ZMMSignInVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7520D47D2B863C4400C1DAFF /* ZMMSignInVC.xib */; };
+		7520D4822B863C5700C1DAFF /* ZMMSignUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7520D4802B863C5700C1DAFF /* ZMMSignUpVC.swift */; };
+		7520D4832B863C5700C1DAFF /* ZMMSignUpVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7520D4812B863C5700C1DAFF /* ZMMSignUpVC.xib */; };
 		7C8439FD28B5FF610086861A /* ZMMTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C8439FC28B5FF610086861A /* ZMMTextField.m */; };
 		B7F62E1A590185567E6D04C0 /* Pods_mm_mmUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 83987029DAF87542A7D17EA4 /* Pods_mm_mmUITests.framework */; };
 		D3BCE0E8AEE610888FF8D93C /* Pods_mmTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0B2BB92D8DB9B28F4923F8A5 /* Pods_mmTests.framework */; };
@@ -78,6 +84,12 @@
 		7520D4642B835BAD00C1DAFF /* ZMMReaderVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZMMReaderVC.swift; sourceTree = "<group>"; };
 		7520D4662B835BAD00C1DAFF /* ZMMPhotoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZMMPhotoViewController.swift; sourceTree = "<group>"; };
 		7520D4672B835BAD00C1DAFF /* ZMMPhotoViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ZMMPhotoViewController.xib; sourceTree = "<group>"; };
+		7520D4762B863BFE00C1DAFF /* ZMMLoginMainVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZMMLoginMainVC.swift; sourceTree = "<group>"; };
+		7520D4772B863BFE00C1DAFF /* ZMMLoginMainVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ZMMLoginMainVC.xib; sourceTree = "<group>"; };
+		7520D47C2B863C4400C1DAFF /* ZMMSignInVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZMMSignInVC.swift; sourceTree = "<group>"; };
+		7520D47D2B863C4400C1DAFF /* ZMMSignInVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ZMMSignInVC.xib; sourceTree = "<group>"; };
+		7520D4802B863C5700C1DAFF /* ZMMSignUpVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZMMSignUpVC.swift; sourceTree = "<group>"; };
+		7520D4812B863C5700C1DAFF /* ZMMSignUpVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ZMMSignUpVC.xib; sourceTree = "<group>"; };
 		7C8439FB28B5FF610086861A /* ZMMTextField.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZMMTextField.h; sourceTree = "<group>"; };
 		7C8439FC28B5FF610086861A /* ZMMTextField.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZMMTextField.m; sourceTree = "<group>"; };
 		83987029DAF87542A7D17EA4 /* Pods_mm_mmUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_mm_mmUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -189,6 +201,19 @@
 			path = Photo;
 			sourceTree = "<group>";
 		};
+		7520D4752B863BC000C1DAFF /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				7520D4762B863BFE00C1DAFF /* ZMMLoginMainVC.swift */,
+				7520D4772B863BFE00C1DAFF /* ZMMLoginMainVC.xib */,
+				7520D47C2B863C4400C1DAFF /* ZMMSignInVC.swift */,
+				7520D47D2B863C4400C1DAFF /* ZMMSignInVC.xib */,
+				7520D4802B863C5700C1DAFF /* ZMMSignUpVC.swift */,
+				7520D4812B863C5700C1DAFF /* ZMMSignUpVC.xib */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
 		7C8439FA28B5FF020086861A /* ToolCommon */ = {
 			isa = PBXGroup;
 			children = (
@@ -236,6 +261,7 @@
 		D7392F15282AA23200E5B148 /* mm */ = {
 			isa = PBXGroup;
 			children = (
+				7520D4752B863BC000C1DAFF /* Login */,
 				7520D45B2B835BAD00C1DAFF /* Audio */,
 				7520D4542B835BAD00C1DAFF /* Main */,
 				7520D4652B835BAD00C1DAFF /* Photo */,
@@ -395,9 +421,12 @@
 				7520D4712B835BAD00C1DAFF /* ZMMReaderVC.xib in Resources */,
 				7520D44F2B835B5000C1DAFF /* ZMMScoreVC.xib in Resources */,
 				D7392F26282AA23700E5B148 /* LaunchScreen.storyboard in Resources */,
+				7520D4792B863BFE00C1DAFF /* ZMMLoginMainVC.xib in Resources */,
 				7520D46D2B835BAD00C1DAFF /* ZMMAudioContentVC.xib in Resources */,
 				7520D4692B835BAD00C1DAFF /* ZMMVideoViewController.xib in Resources */,
+				7520D4832B863C5700C1DAFF /* ZMMSignUpVC.xib in Resources */,
 				D7392F23282AA23700E5B148 /* Assets.xcassets in Resources */,
+				7520D47F2B863C4400C1DAFF /* ZMMSignInVC.xib in Resources */,
 				7520D46F2B835BAD00C1DAFF /* ZMMAudioViewController.xib in Resources */,
 				D7392F21282AA23200E5B148 /* Main.storyboard in Resources */,
 			);
@@ -549,6 +578,7 @@
 			files = (
 				7520D4732B835BAD00C1DAFF /* ZMMPhotoViewController.swift in Sources */,
 				7520D46E2B835BAD00C1DAFF /* ZMMAudioViewController.m in Sources */,
+				7520D4782B863BFE00C1DAFF /* ZMMLoginMainVC.swift in Sources */,
 				7520D4702B835BAD00C1DAFF /* ZMMAudioContentVC.m in Sources */,
 				7520D44E2B835B5000C1DAFF /* ZMMScoreVC.swift in Sources */,
 				7520D46B2B835BAD00C1DAFF /* SceneDelegate.m in Sources */,
@@ -556,6 +586,8 @@
 				7520D4682B835BAD00C1DAFF /* ZMMVideoViewController.swift in Sources */,
 				7520D4722B835BAD00C1DAFF /* ZMMReaderVC.swift in Sources */,
 				7C8439FD28B5FF610086861A /* ZMMTextField.m in Sources */,
+				7520D47E2B863C4400C1DAFF /* ZMMSignInVC.swift in Sources */,
+				7520D4822B863C5700C1DAFF /* ZMMSignUpVC.swift in Sources */,
 				D7392F29282AA23700E5B148 /* main.m in Sources */,
 				7520D46C2B835BAD00C1DAFF /* AppDelegate.m in Sources */,
 			);
@@ -745,7 +777,7 @@
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -782,7 +814,7 @@
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
