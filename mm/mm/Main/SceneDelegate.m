@@ -7,6 +7,7 @@
 
 #import "SceneDelegate.h"
 #import "ZMMTabBarController.h"
+#import "mm-Swift.h"
 
 @interface SceneDelegate ()
 
@@ -22,7 +23,8 @@
     
     if ([scene isKindOfClass:[UIWindowScene class]]) {
         UIWindow *window = [[UIWindow alloc] initWithWindowScene:(UIWindowScene *)scene];
-        window.rootViewController = [[ZMMTabBarController alloc] init];
+//        window.rootViewController = [[ZMMTabBarController alloc] init];
+        window.rootViewController = [[ZMMLoginMainVC alloc] init];
         self.window = window;
         [window makeKeyAndVisible];
     }
