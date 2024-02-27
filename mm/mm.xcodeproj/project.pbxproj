@@ -59,6 +59,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		045C73DD2B8D762F00357EAB /* mm-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "mm-Bridging-Header.h"; sourceTree = "<group>"; };
 		0B2BB92D8DB9B28F4923F8A5 /* Pods_mmTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_mmTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1BBB91AEEB0251F707A52BA5 /* Pods-mm-mmUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-mm-mmUITests.release.xcconfig"; path = "Target Support Files/Pods-mm-mmUITests/Pods-mm-mmUITests.release.xcconfig"; sourceTree = "<group>"; };
 		214CCAD6167BEC2568074A94 /* Pods_mm.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_mm.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -67,7 +68,6 @@
 		7520D44D2B835B5000C1DAFF /* ZMMScoreVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ZMMScoreVC.xib; sourceTree = "<group>"; };
 		7520D4512B835BAD00C1DAFF /* ZMMVideoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZMMVideoViewController.swift; sourceTree = "<group>"; };
 		7520D4522B835BAD00C1DAFF /* ZMMVideoViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ZMMVideoViewController.xib; sourceTree = "<group>"; };
-		7520D4532B835BAD00C1DAFF /* mm-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "mm-Bridging-Header.h"; sourceTree = "<group>"; };
 		7520D4552B835BAD00C1DAFF /* ZMMTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZMMTabBarController.m; sourceTree = "<group>"; };
 		7520D4562B835BAD00C1DAFF /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		7520D4572B835BAD00C1DAFF /* SceneDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SceneDelegate.m; sourceTree = "<group>"; };
@@ -152,7 +152,6 @@
 			children = (
 				7520D4512B835BAD00C1DAFF /* ZMMVideoViewController.swift */,
 				7520D4522B835BAD00C1DAFF /* ZMMVideoViewController.xib */,
-				7520D4532B835BAD00C1DAFF /* mm-Bridging-Header.h */,
 			);
 			path = Video;
 			sourceTree = "<group>";
@@ -261,6 +260,7 @@
 		D7392F15282AA23200E5B148 /* mm */ = {
 			isa = PBXGroup;
 			children = (
+				045C73DD2B8D762F00357EAB /* mm-Bridging-Header.h */,
 				7520D4752B863BC000C1DAFF /* Login */,
 				7520D45B2B835BAD00C1DAFF /* Audio */,
 				7520D4542B835BAD00C1DAFF /* Main */,
@@ -786,7 +786,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.zyn.mm;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_OBJC_BRIDGING_HEADER = "mm/video/mm-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "mm/mm-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -823,7 +823,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.zyn.mm;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_OBJC_BRIDGING_HEADER = "mm/video/mm-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "mm/mm-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 				USER_HEADER_SEARCH_PATHS = "$(inherited)";

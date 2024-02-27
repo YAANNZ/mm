@@ -23,8 +23,9 @@
     
     if ([scene isKindOfClass:[UIWindowScene class]]) {
         UIWindow *window = [[UIWindow alloc] initWithWindowScene:(UIWindowScene *)scene];
-//        window.rootViewController = [[ZMMTabBarController alloc] init];
-        window.rootViewController = [[ZMMLoginMainVC alloc] init];
+        ZMMLoginMainVC *loginVC = [[ZMMLoginMainVC alloc] init];
+        UINavigationController *loginNav = [[UINavigationController alloc] initWithRootViewController:loginVC];
+        window.rootViewController = loginNav;
         self.window = window;
         [window makeKeyAndVisible];
     }
