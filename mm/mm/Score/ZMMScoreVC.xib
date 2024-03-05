@@ -12,6 +12,8 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ZMMScoreVC" customModule="mm" customModuleProvider="target">
             <connections>
                 <outlet property="contentBgView" destination="0vM-Bu-a2F" id="Tgd-AU-hwL"/>
+                <outlet property="optionsBgView" destination="0vM-Bu-a2F" id="UDF-sK-3bN"/>
+                <outlet property="recordBgView" destination="gcS-4B-94R" id="xER-Og-vG8"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -21,10 +23,10 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pEN-Ef-mjw">
-                    <rect key="frame" x="0.0" y="109" width="393" height="200"/>
+                    <rect key="frame" x="0.0" y="109" width="393" height="100"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Mj3-wE-epG">
-                            <rect key="frame" x="158.66666666666666" y="82" width="76" height="36"/>
+                            <rect key="frame" x="158.66666666666666" y="32" width="76" height="36"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="100" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g6f-G5-qv4">
                                     <rect key="frame" x="0.0" y="0.0" width="53.666666666666664" height="36"/>
@@ -54,24 +56,34 @@
                     <constraints>
                         <constraint firstItem="Mj3-wE-epG" firstAttribute="centerX" secondItem="pEN-Ef-mjw" secondAttribute="centerX" id="hhS-Vw-UcM"/>
                         <constraint firstItem="Mj3-wE-epG" firstAttribute="centerY" secondItem="pEN-Ef-mjw" secondAttribute="centerY" id="r6j-0N-aAb"/>
-                        <constraint firstAttribute="height" constant="200" id="sjA-uP-tfb"/>
+                        <constraint firstAttribute="height" constant="100" id="sjA-uP-tfb"/>
                     </constraints>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0vM-Bu-a2F">
-                    <rect key="frame" x="0.0" y="309" width="393" height="509"/>
+                    <rect key="frame" x="0.0" y="389" width="393" height="429"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gcS-4B-94R">
+                    <rect key="frame" x="0.0" y="209" width="393" height="180"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="180" id="r1M-4W-WxZ"/>
+                    </constraints>
                 </view>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
                 <constraint firstItem="pEN-Ef-mjw" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="50" id="2O5-78-7gf"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="gcS-4B-94R" secondAttribute="trailing" id="4Cj-pj-WUd"/>
                 <constraint firstItem="0vM-Bu-a2F" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="71Q-N0-ODU"/>
+                <constraint firstItem="gcS-4B-94R" firstAttribute="top" secondItem="pEN-Ef-mjw" secondAttribute="bottom" id="J4k-Af-1Fd"/>
                 <constraint firstItem="0vM-Bu-a2F" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="L8S-BN-Rec"/>
                 <constraint firstItem="pEN-Ef-mjw" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="LUs-ED-WZM"/>
-                <constraint firstItem="0vM-Bu-a2F" firstAttribute="top" secondItem="pEN-Ef-mjw" secondAttribute="bottom" id="cSZ-X8-2if"/>
+                <constraint firstItem="gcS-4B-94R" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="hPQ-6V-gF6"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="0vM-Bu-a2F" secondAttribute="bottom" id="hds-d3-1ui"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="pEN-Ef-mjw" secondAttribute="trailing" id="shW-of-W2Z"/>
+                <constraint firstItem="0vM-Bu-a2F" firstAttribute="top" secondItem="gcS-4B-94R" secondAttribute="bottom" id="tAK-4b-IAF"/>
             </constraints>
             <point key="canvasLocation" x="107.63358778625954" y="19.718309859154932"/>
         </view>
@@ -81,7 +93,7 @@
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="systemOrangeColor">
-            <color red="1" green="0.58431372549019611" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

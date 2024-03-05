@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		045C74132B9165AC00357EAB /* ZMMScoreRecordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045C74122B9165AC00357EAB /* ZMMScoreRecordView.swift */; };
+		045C74142B9165AC00357EAB /* ZMMScoreRecordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045C74122B9165AC00357EAB /* ZMMScoreRecordView.swift */; };
+		045C74162B91661C00357EAB /* ZMMScoreOptionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045C74152B91661C00357EAB /* ZMMScoreOptionsView.swift */; };
+		045C74172B91661C00357EAB /* ZMMScoreOptionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045C74152B91661C00357EAB /* ZMMScoreOptionsView.swift */; };
 		3703DF912B2AF59A403BEC09 /* Pods_mm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 214CCAD6167BEC2568074A94 /* Pods_mm.framework */; };
 		7520D44E2B835B5000C1DAFF /* ZMMScoreVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7520D44C2B835B5000C1DAFF /* ZMMScoreVC.swift */; };
 		7520D44F2B835B5000C1DAFF /* ZMMScoreVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7520D44D2B835B5000C1DAFF /* ZMMScoreVC.xib */; };
@@ -60,6 +64,8 @@
 
 /* Begin PBXFileReference section */
 		045C73DD2B8D762F00357EAB /* mm-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "mm-Bridging-Header.h"; sourceTree = "<group>"; };
+		045C74122B9165AC00357EAB /* ZMMScoreRecordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZMMScoreRecordView.swift; sourceTree = "<group>"; };
+		045C74152B91661C00357EAB /* ZMMScoreOptionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZMMScoreOptionsView.swift; sourceTree = "<group>"; };
 		0B2BB92D8DB9B28F4923F8A5 /* Pods_mmTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_mmTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1BBB91AEEB0251F707A52BA5 /* Pods-mm-mmUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-mm-mmUITests.release.xcconfig"; path = "Target Support Files/Pods-mm-mmUITests/Pods-mm-mmUITests.release.xcconfig"; sourceTree = "<group>"; };
 		214CCAD6167BEC2568074A94 /* Pods_mm.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_mm.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -143,6 +149,8 @@
 			children = (
 				7520D44C2B835B5000C1DAFF /* ZMMScoreVC.swift */,
 				7520D44D2B835B5000C1DAFF /* ZMMScoreVC.xib */,
+				045C74122B9165AC00357EAB /* ZMMScoreRecordView.swift */,
+				045C74152B91661C00357EAB /* ZMMScoreOptionsView.swift */,
 			);
 			path = Score;
 			sourceTree = "<group>";
@@ -384,6 +392,7 @@
 					};
 					D7392F2D282AA23700E5B148 = {
 						CreatedOnToolsVersion = 13.0;
+						LastSwiftMigration = 1520;
 						TestTargetID = D7392F12282AA23200E5B148;
 					};
 					D7392F37282AA23700E5B148 = {
@@ -587,7 +596,9 @@
 				7520D4722B835BAD00C1DAFF /* ZMMReaderVC.swift in Sources */,
 				7C8439FD28B5FF610086861A /* ZMMTextField.m in Sources */,
 				7520D47E2B863C4400C1DAFF /* ZMMSignInVC.swift in Sources */,
+				045C74162B91661C00357EAB /* ZMMScoreOptionsView.swift in Sources */,
 				7520D4822B863C5700C1DAFF /* ZMMSignUpVC.swift in Sources */,
+				045C74132B9165AC00357EAB /* ZMMScoreRecordView.swift in Sources */,
 				D7392F29282AA23700E5B148 /* main.m in Sources */,
 				7520D46C2B835BAD00C1DAFF /* AppDelegate.m in Sources */,
 			);
@@ -597,7 +608,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				045C74172B91661C00357EAB /* ZMMScoreOptionsView.swift in Sources */,
 				D7392F33282AA23700E5B148 /* mmTests.m in Sources */,
+				045C74142B9165AC00357EAB /* ZMMScoreRecordView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -836,6 +849,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = UA62U3JARN;
@@ -850,6 +864,8 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.zyn.mmTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/mm.app/mm";
 			};
@@ -861,6 +877,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = UA62U3JARN;
@@ -875,6 +892,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.zyn.mmTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/mm.app/mm";
 			};
