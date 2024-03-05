@@ -17,9 +17,17 @@ class ZMMSignInVC: UIViewController {
 
 
     @IBAction func enterEvent(_ sender: Any) {
-        let scenes = UIApplication.shared.connectedScenes
-        for scene in scenes {
-            
+        
+        if #available(iOS 15.0, *) {
+            let scenes = UIApplication.shared.connectedScenes
+            for scene in scenes {
+                if (scene.activationState == UIScene.ActivationState.foregroundActive) {
+                    let windowScene = scene as! UIWindowScene
+                    windowScene.keyWindow?.rootViewController = ZMMTabBarController()
+                }
+            }
+        } else {
+            UIApplication.shared.windows.first?.rootViewController = ZMMTabBarController()
         }
     }
     
