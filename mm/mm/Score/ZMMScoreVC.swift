@@ -6,7 +6,7 @@
 //
 
 import UIKit
-import Masonry
+import SnapKit
 
 class ZMMScoreVC: UIViewController {
 
@@ -17,7 +17,7 @@ class ZMMScoreVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        
+        configUI()
     }
 
 
@@ -26,14 +26,15 @@ class ZMMScoreVC: UIViewController {
         
         let recordView = ZMMScoreRecordView()
         recordBgView.addSubview(recordView)
-        recordView.mas_makeConstraints { make in
-            make?.edges.equalTo()
+        recordView.snp.makeConstraints { make in
+            make.edges.equalToSuperview()
         }
+        
         
         let optionsView = ZMMScoreOptionsView()
         optionsBgView.addSubview(optionsView)
-        optionsView.mas_makeConstraints { make in
-            make?.edges.equalTo()
+        optionsBgView.snp.makeConstraints { make in
+            make.edges.equalToSuperview()
         }
     }
 
