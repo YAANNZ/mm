@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		041683AC2BDF9B1400EFA67E /* ZMMScoreRecordCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041683AA2BDF9B1400EFA67E /* ZMMScoreRecordCell.swift */; };
+		041683AD2BDF9B1400EFA67E /* ZMMScoreRecordCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 041683AB2BDF9B1400EFA67E /* ZMMScoreRecordCell.xib */; };
 		045C74132B9165AC00357EAB /* ZMMScoreRecordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045C74122B9165AC00357EAB /* ZMMScoreRecordView.swift */; };
 		045C74142B9165AC00357EAB /* ZMMScoreRecordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045C74122B9165AC00357EAB /* ZMMScoreRecordView.swift */; };
 		045C74162B91661C00357EAB /* ZMMScoreOptionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045C74152B91661C00357EAB /* ZMMScoreOptionsView.swift */; };
@@ -63,6 +65,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		041683AA2BDF9B1400EFA67E /* ZMMScoreRecordCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZMMScoreRecordCell.swift; sourceTree = "<group>"; };
+		041683AB2BDF9B1400EFA67E /* ZMMScoreRecordCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ZMMScoreRecordCell.xib; sourceTree = "<group>"; };
 		045C73DD2B8D762F00357EAB /* mm-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "mm-Bridging-Header.h"; sourceTree = "<group>"; };
 		045C74122B9165AC00357EAB /* ZMMScoreRecordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZMMScoreRecordView.swift; sourceTree = "<group>"; };
 		045C74152B91661C00357EAB /* ZMMScoreOptionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZMMScoreOptionsView.swift; sourceTree = "<group>"; };
@@ -151,6 +155,8 @@
 				7520D44D2B835B5000C1DAFF /* ZMMScoreVC.xib */,
 				045C74122B9165AC00357EAB /* ZMMScoreRecordView.swift */,
 				045C74152B91661C00357EAB /* ZMMScoreOptionsView.swift */,
+				041683AA2BDF9B1400EFA67E /* ZMMScoreRecordCell.swift */,
+				041683AB2BDF9B1400EFA67E /* ZMMScoreRecordCell.xib */,
 			);
 			path = Score;
 			sourceTree = "<group>";
@@ -431,6 +437,7 @@
 				7520D44F2B835B5000C1DAFF /* ZMMScoreVC.xib in Resources */,
 				D7392F26282AA23700E5B148 /* LaunchScreen.storyboard in Resources */,
 				7520D4792B863BFE00C1DAFF /* ZMMLoginMainVC.xib in Resources */,
+				041683AD2BDF9B1400EFA67E /* ZMMScoreRecordCell.xib in Resources */,
 				7520D46D2B835BAD00C1DAFF /* ZMMAudioContentVC.xib in Resources */,
 				7520D4692B835BAD00C1DAFF /* ZMMVideoViewController.xib in Resources */,
 				7520D4832B863C5700C1DAFF /* ZMMSignUpVC.xib in Resources */,
@@ -598,6 +605,7 @@
 				7520D47E2B863C4400C1DAFF /* ZMMSignInVC.swift in Sources */,
 				045C74162B91661C00357EAB /* ZMMScoreOptionsView.swift in Sources */,
 				7520D4822B863C5700C1DAFF /* ZMMSignUpVC.swift in Sources */,
+				041683AC2BDF9B1400EFA67E /* ZMMScoreRecordCell.swift in Sources */,
 				045C74132B9165AC00357EAB /* ZMMScoreRecordView.swift in Sources */,
 				D7392F29282AA23700E5B148 /* main.m in Sources */,
 				7520D46C2B835BAD00C1DAFF /* AppDelegate.m in Sources */,

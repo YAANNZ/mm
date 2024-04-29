@@ -16,6 +16,7 @@ target 'mm' do
   pod 'ReactiveCocoa', '~> 10.1'
   pod 'Masonry'
   pod 'FMDB'
+  pod 'SnapKit', '~> 5.7.0'
 
   target 'mmTests' do
     inherit! :search_paths

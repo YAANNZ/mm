@@ -9,6 +9,7 @@ PODS:
   - ReactiveCocoa (10.3.0):
     - ReactiveSwift (~> 6.2)
   - ReactiveSwift (6.7.0)
+  - SnapKit (5.7.1)
   - TYPagerController (2.1.2)
 
 DEPENDENCIES:
@@ -17,6 +18,7 @@ DEPENDENCIES:
   - FMDB
   - Masonry
   - ReactiveCocoa (~> 10.1)
+  - SnapKit (~> 5.7.0)
   - TYPagerController
 
 SPEC REPOS:
@@ -25,6 +27,7 @@ SPEC REPOS:
     - Masonry
     - ReactiveCocoa
     - ReactiveSwift
+    - SnapKit
     - TYPagerController
 
 EXTERNAL SOURCES:
@@ -40,8 +43,9 @@ SPEC CHECKSUMS:
   Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
   ReactiveCocoa: 083ae559e6f588ce519cab412ea119b431c26a24
   ReactiveSwift: 208201d6ecc9734196d147aa76bc1f24b1b821fe
+  SnapKit: d612e99e678a2d3b95bf60b0705ed0a35c03484a
   TYPagerController: 262556ecef99986d26ed77fb1288a198ed42f4af
 
-PODFILE CHECKSUM: 8b2015f51bef7b81a19aec699e34fd2d4ff55443
+PODFILE CHECKSUM: 066723023842c78e8820e9850dddee649ab23d63
 
 COCOAPODS: 1.10.2

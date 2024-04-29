@@ -7,32 +7,73 @@
 
 import UIKit
 
-class ZMMScoreRecordView: UIView {
-
-    var scrollView: UIScrollView?
+class ZMMScoreRecordView: UIView, UICollectionViewDelegate, UICollectionViewDataSource {
     
-//    RRTabMoreConfig *config = [RRTabMoreConfig shareInstance];
-//    config.sectionInset = UIEdgeInsetsMake(30, 20, 30, 20);
-//    config.tabItemWidth = floorf((SCREEN_WIDTH - 40) / 5);
-//    
-//    UICollectionViewFlowLayout *flowlayout = [[UICollectionViewFlowLayout alloc] init];
-//    flowlayout.minimumLineSpacing = 20;
-//    flowlayout.sectionInset = config.sectionInset;
-//    CGFloat itemHeight = config.imageOffset+config.tabImageSize.height+config.titleOffset+config.titleHeight;
-//    flowlayout.itemSize = CGSizeMake(config.tabItemWidth, itemHeight);
-//
-////        RRMaxCellSpacingFlowLayout *spacelayout = [[RRMaxCellSpacingFlowLayout alloc] init];
-////        spacelayout.maxCellSpacing = config.tabItemSpacing;
-////        spacelayout.minimumLineSpacing = config.tabItemLineSpacing;
-////        spacelayout.sectionInset = config.sectionInset;
-////        CGFloat itemHeight = config.imageOffset+config.tabImageSize.height+config.titleOffset+config.titleHeight;
-////        spacelayout.itemSize = CGSizeMake(config.tabItemWidth, itemHeight);
-//
-//    _tabItemsClView = [[UICollectionView alloc] initWithFrame:CGRectZero collectionViewLayout:flowlayout];
-//    _tabItemsClView.backgroundColor = [UIColor clearColor];
-//    _tabItemsClView.delegate = self;
-//    _tabItemsClView.dataSource = self;
-//    [_tabItemsClView registerClass:[RRTabMoreClVCell class] forCellWithReuseIdentifier:NSStringFromClass(RRTabMoreClVCell.class)];
+    
     
 
+    var collectionView: UICollectionView!
+    var dataAry: Array<Any>!
+    
+    
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        
+        
+        
+        configSubViews()
+        
+        buildData()
+    }
+    
+    required init?(coder: NSCoder) {
+        super.init(coder: coder)
+    }
+    
+    func configSubViews() {
+        let layout = UICollectionViewFlowLayout();
+        layout.sectionInset = UIEdgeInsets(top: 0, left: 5, bottom: 0, right: 5)
+        layout.minimumLineSpacing = 5;
+        layout.minimumInteritemSpacing = 5;
+        layout.itemSize = CGSize(width: 20, height: 20)
+        layout.scrollDirection = UICollectionView.ScrollDirection.horizontal
+        
+        collectionView = UICollectionView.init(frame: CGRectZero, collectionViewLayout: layout)
+        collectionView.register(UINib(nibName: String(describing: ZMMScoreRecordCell.self), bundle: Bundle.main), forCellWithReuseIdentifier: String(describing: ZMMScoreRecordCell.self))
+        collectionView.delegate = self
+        collectionView.dataSource = self
+        self.addSubview(collectionView)
+        collectionView.snp.makeConstraints { make in
+            make.edges.equalToSuperview()
+        }
+        
+    }
+    
+    func buildData() {
+        var ary = Array<Any>()
+        for i in 1...100 {
+            ary.append("1")
+        }
+        dataAry = ary;
+        
+        collectionView.reloadData()
+    }
+    
+    
+    
+    
+   //MARK: UICollectionViewDataSource
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return dataAry.count
+    }
+    
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: String(describing: ZMMScoreRecordCell.self), for: indexPath)
+        return cell
+    }
+    
+    
+    //MARK: UICollectionViewDelegate
+    
 }
