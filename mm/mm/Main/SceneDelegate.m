@@ -25,7 +25,8 @@
         UIWindow *window = [[UIWindow alloc] initWithWindowScene:(UIWindowScene *)scene];
         ZMMLoginMainVC *loginVC = [[ZMMLoginMainVC alloc] init];
         UINavigationController *loginNav = [[UINavigationController alloc] initWithRootViewController:loginVC];
-        window.rootViewController = loginNav;
+//        window.rootViewController = loginNav;
+        window.rootViewController = [[ZMMTabBarController alloc] init];
         self.window = window;
         [window makeKeyAndVisible];
     }

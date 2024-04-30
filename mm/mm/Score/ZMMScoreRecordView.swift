@@ -32,13 +32,14 @@ class ZMMScoreRecordView: UIView, UICollectionViewDelegate, UICollectionViewData
     
     func configSubViews() {
         let layout = UICollectionViewFlowLayout();
-        layout.sectionInset = UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 10)
+        layout.sectionInset = UIEdgeInsets(top: 5, left: 10, bottom: 5, right: 10)
         layout.minimumLineSpacing = 5;
         layout.minimumInteritemSpacing = 5;
         layout.itemSize = CGSize(width: 20, height: 20)
         layout.scrollDirection = UICollectionView.ScrollDirection.horizontal
         
         collectionView = UICollectionView.init(frame: CGRectZero, collectionViewLayout: layout)
+        collectionView.showsHorizontalScrollIndicator = false;
         collectionView.register(UINib(nibName: String(describing: ZMMScoreRecordCell.self), bundle: Bundle.main), forCellWithReuseIdentifier: String(describing: ZMMScoreRecordCell.self))
         collectionView.delegate = self
         collectionView.dataSource = self
