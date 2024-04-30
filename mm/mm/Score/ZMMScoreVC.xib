@@ -11,7 +11,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ZMMScoreVC" customModule="mm" customModuleProvider="target">
             <connections>
-                <outlet property="contentBgView" destination="0vM-Bu-a2F" id="Tgd-AU-hwL"/>
+                <outlet property="contentBgView" destination="pEN-Ef-mjw" id="Tl5-YZ-muL"/>
                 <outlet property="optionsBgView" destination="0vM-Bu-a2F" id="UDF-sK-3bN"/>
                 <outlet property="recordBgView" destination="gcS-4B-94R" id="xER-Og-vG8"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>

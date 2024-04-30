@@ -33,7 +33,7 @@ class ZMMScoreVC: UIViewController {
         
         let optionsView = ZMMScoreOptionsView()
         optionsBgView.addSubview(optionsView)
-        optionsBgView.snp.makeConstraints { make in
+        optionsView.snp.makeConstraints { make in
             make.edges.equalToSuperview()
         }
     }

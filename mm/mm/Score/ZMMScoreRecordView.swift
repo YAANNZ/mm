@@ -32,7 +32,7 @@ class ZMMScoreRecordView: UIView, UICollectionViewDelegate, UICollectionViewData
     
     func configSubViews() {
         let layout = UICollectionViewFlowLayout();
-        layout.sectionInset = UIEdgeInsets(top: 0, left: 5, bottom: 0, right: 5)
+        layout.sectionInset = UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 10)
         layout.minimumLineSpacing = 5;
         layout.minimumInteritemSpacing = 5;
         layout.itemSize = CGSize(width: 20, height: 20)
@@ -51,7 +51,7 @@ class ZMMScoreRecordView: UIView, UICollectionViewDelegate, UICollectionViewData
     
     func buildData() {
         var ary = Array<Any>()
-        for i in 1...100 {
+        for i in 1...200 {
             ary.append("1")
         }
         dataAry = ary;
@@ -75,5 +75,8 @@ class ZMMScoreRecordView: UIView, UICollectionViewDelegate, UICollectionViewData
     
     
     //MARK: UICollectionViewDelegate
+    func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
+        
+    }
     
 }
