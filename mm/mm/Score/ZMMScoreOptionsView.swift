@@ -2,19 +2,30 @@
 //  ZMMScoreOptionsView.swift
 //  mm
 //
-//  Created by Tommy Liu（Loftyworks Team） on 2024/3/1.
+//  Created by zhuyn on 2024/3/1.
 //
 
 import UIKit
 
+// https://www.cnblogs.com/chglog/p/4837070.html
 class ZMMScoreOptionsView: UIView {
 
-    /*
-    // Only override draw() if you perform custom drawing.
-    // An empty implementation adversely affects performance during animation.
-    override func draw(_ rect: CGRect) {
-        // Drawing code
+    var animator: UIDynamicAnimator!
+    
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        
+        animator = UIDynamicAnimator.init(referenceView: self)
+        
+        configSubViews()
     }
-    */
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
 
+    func configSubViews() {
+        
+    }
 }

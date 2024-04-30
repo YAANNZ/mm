@@ -2,7 +2,7 @@
 //  ZMMScoreRecordView.swift
 //  mm
 //
-//  Created by Tommy Liu（Loftyworks Team） on 2024/3/1.
+//  Created by zhuyn on 2024/3/1.
 //
 
 import UIKit
