@@ -17,6 +17,8 @@ target 'mm' do
   pod 'Masonry'
   pod 'FMDB'
   pod 'SnapKit', '~> 5.7.0'
+  pod 'LookinServer', :configurations => ['Debug']
+  pod 'QMUIKit'
 
 
 
