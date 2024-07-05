@@ -11,15 +11,54 @@ target 'mm' do
   # Comment the next line if you don't want to use dynamic frameworks
   use_frameworks!
   # Pods for mm
-  pod 'TYPagerController'
-#  pod 'YYKit'
-  pod 'ReactiveCocoa', '~> 10.1'
-  pod 'Masonry'
-  pod 'FMDB'
-  pod 'SnapKit', '~> 5.7.0'
-  pod 'LookinServer', :configurations => ['Debug']
+
+
+  
+
+  # UI wedges
   pod 'QMUIKit'
 
+  # Tab bar/page bar
+  pod 'TYPagerController'
+
+   # Auto layout
+   pod 'Masonry'
+   pod 'SnapKit', '~> 5.7.0'
+
+  # YYKit
+  pod 'YYKit'
+
+  # Alert/sheet
+  pod 'HWPanModal', '~> 0.9.9'
+  pod 'LEEAlert'
+
+  # Alert/loading
+  pod 'SVProgressHUD'
+  pod 'MBProgressHUD', '~> 1.2.0'
+  pod 'Toast'
+
+  # RAC
+  pod 'ReactiveCocoa', '~> 10.1'
+
+  # webview Bridge
+	pod 'WKWebViewJavascriptBridge'
+
+  # data base
+  pod 'WCDB.swift'
+  pod 'FMDB'
+
+  
+
+
+  # base pods
+# UI debug Tool
+pod 'LookinServer', :configurations => ['Debug']
+
+# theme
+pod 'LEETheme'
+
+# Module
+pod 'CTMediator'
 
 
   target 'mmTests' do
