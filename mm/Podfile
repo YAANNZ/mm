@@ -1,65 +1,90 @@
 # Uncomment the next line to define a global platform for your project
 # platform :ios, '9.0'
 
+# flutter
 flutter_application_path = '../mm_flutter'
 load File.join(flutter_application_path, '.ios', 'Flutter', 'podhelper.rb')
 
-target 'mm' do
-	
-  install_all_flutter_pods(flutter_application_path)
-
-  # Comment the next line if you don't want to use dynamic frameworks
-  use_frameworks!
-  # Pods for mm
-
-
-  
-
+# pod module
+def uibase
   # UI wedges
   pod 'QMUIKit'
-
   # Tab bar/page bar
   pod 'TYPagerController'
-
-   # Auto layout
-   pod 'Masonry'
-   pod 'SnapKit', '~> 5.7.0'
-
-  # YYKit
-  pod 'YYKit'
-
+  # Auto layout
+  pod 'Masonry'
+  pod 'SnapKit', '~> 5.7.0'
   # Alert/sheet
   pod 'HWPanModal', '~> 0.9.9'
   pod 'LEEAlert'
-
   # Alert/loading
   pod 'SVProgressHUD'
   pod 'MBProgressHUD', '~> 1.2.0'
   pod 'Toast'
+  # YYKit
+  pod 'YYKit', git: 'https://github.com/SAGESSE-CN/YYKit.git'
+  # Nav
+  pod 'CWLateralSlide'
+  pod 'FDFullscreenPopGesture'
+  # emptyView
+  pod 'DZNEmptyDataSet'
+end
 
-  # RAC
-  pod 'ReactiveCocoa', '~> 10.1'
+def uitools
+  # calendar
+  pod 'FSCalendar'
+  # badgeView
+  pod 'JSBadgeView'
+  # mapView
+  pod 'ClusterKit'
+  # charts
+  pod 'DGCharts'
+end
 
-  # webview Bridge
-	pod 'WKWebViewJavascriptBridge'
+def imageVideoAudio
+  pod 'YBImageBrowser'
+  pod 'BRPickerView'
+  pod 'FLAnimatedImage'
+  pod 'ZFPlayer'
+end
 
+def database
   # data base
   pod 'WCDB.swift'
   pod 'FMDB'
+end
 
-  
+def tools
+  # UI debug Tool
+  pod 'LookinServer', :configurations => ['Debug']
+end
 
+def common
+  # Date
+  pod 'DateTools'
+  # keyboard
+  pod 'IQKeyboardManager'
+  # RAC
+  pod 'ReactiveCocoa', '~> 10.1'
+  # webview Bridge
+	pod 'WKWebViewJavascriptBridge'
+  # theme
+  pod 'LEETheme'
+  # Module
+  pod 'CTMediator'
+end
 
-  # base pods
-# UI debug Tool
-pod 'LookinServer', :configurations => ['Debug']
-
-# theme
-pod 'LEETheme'
-
-# Module
-pod 'CTMediator'
-
+target 'mm' do
+  install_all_flutter_pods(flutter_application_path)
+  # Comment the next line if you don't want to use dynamic frameworks
+  use_frameworks!
+  # Pods for mm
+  uibase
+  uitools
+  imageVideoAudio
+  database
+  tools
+  common
 
   target 'mmTests' do
     inherit! :search_paths

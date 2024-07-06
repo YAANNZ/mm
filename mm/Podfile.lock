@@ -1,14 +1,41 @@
 PODS:
+  - ClusterKit (0.5.0):
+    - ClusterKit/Core (= 0.5.0)
+  - ClusterKit/Core (0.5.0)
+  - CTMediator (48)
+  - CWLateralSlide (1.6.5)
+  - DZNEmptyDataSet (1.8.1)
+  - FDFullscreenPopGesture (1.1)
   - Flutter (1.0.0)
   - FlutterPluginRegistrant (0.0.1):
     - Flutter
   - FMDB (2.7.5):
     - FMDB/standard (= 2.7.5)
   - FMDB/standard (2.7.5)
+  - FSCalendar (2.8.4)
+  - HWPanModal (0.9.9)
+  - JSBadgeView (2.0.0)
+  - LEEAlert (1.6.4)
+  - LEETheme (1.2.1):
+    - LEETheme/Privacy (= 1.2.1)
+  - LEETheme/Privacy (1.2.1)
+  - libwebp (1.3.2):
+    - libwebp/demux (= 1.3.2)
+    - libwebp/mux (= 1.3.2)
+    - libwebp/sharpyuv (= 1.3.2)
+    - libwebp/webp (= 1.3.2)
+  - libwebp/demux (1.3.2):
+    - libwebp/webp
+  - libwebp/mux (1.3.2):
+    - libwebp/demux
+  - libwebp/sharpyuv (1.3.2)
+  - libwebp/webp (1.3.2):
+    - libwebp/sharpyuv
   - LookinServer (1.2.8):
     - LookinServer/Core (= 1.2.8)
   - LookinServer/Core (1.2.8)
   - Masonry (1.1.0)
+  - MBProgressHUD (1.2.0)
   - QMUIKit (4.7.0):
     - QMUIKit/QMUIComponents (= 4.7.0)
     - QMUIKit/QMUICore (= 4.7.0)
@@ -309,48 +336,119 @@ PODS:
     - ReactiveSwift (~> 6.2)
   - ReactiveSwift (6.7.0)
   - SnapKit (5.7.1)
+  - SVProgressHUD (2.3.1):
+    - SVProgressHUD/Core (= 2.3.1)
+  - SVProgressHUD/Core (2.3.1)
+  - Toast (4.1.1)
   - TYPagerController (2.1.2)
+  - WCDB.swift (2.1.6):
+    - WCDBOptimizedSQLCipher (= 1.4.4)
+  - WCDBOptimizedSQLCipher (1.4.4)
+  - WKWebViewJavascriptBridge (1.2.2)
+  - YYKit (1.0.9):
+    - libwebp
+    - YYKit/no-arc (= 1.0.9)
+  - YYKit/no-arc (1.0.9):
+    - libwebp
 
 DEPENDENCIES:
+  - ClusterKit
+  - CTMediator
+  - CWLateralSlide
+  - DZNEmptyDataSet
+  - FDFullscreenPopGesture
   - Flutter (from `../mm_flutter/.ios/Flutter`)
   - FlutterPluginRegistrant (from `../mm_flutter/.ios/Flutter/FlutterPluginRegistrant`)
   - FMDB
+  - FSCalendar
+  - HWPanModal (~> 0.9.9)
+  - JSBadgeView
+  - LEEAlert
+  - LEETheme
   - LookinServer
   - Masonry
+  - MBProgressHUD (~> 1.2.0)
   - QMUIKit
   - ReactiveCocoa (~> 10.1)
   - SnapKit (~> 5.7.0)
+  - SVProgressHUD
+  - Toast
   - TYPagerController
+  - WCDB.swift
+  - WKWebViewJavascriptBridge
+  - YYKit (from `https://github.com/SAGESSE-CN/YYKit.git`)
 
 SPEC REPOS:
   trunk:
+    - ClusterKit
+    - CTMediator
+    - CWLateralSlide
+    - DZNEmptyDataSet
+    - FDFullscreenPopGesture
     - FMDB
+    - FSCalendar
+    - HWPanModal
+    - JSBadgeView
+    - LEEAlert
+    - LEETheme
+    - libwebp
     - LookinServer
     - Masonry
+    - MBProgressHUD
     - QMUIKit
     - ReactiveCocoa
     - ReactiveSwift
     - SnapKit
+    - SVProgressHUD
+    - Toast
     - TYPagerController
+    - WCDB.swift
+    - WCDBOptimizedSQLCipher
+    - WKWebViewJavascriptBridge
 
 EXTERNAL SOURCES:
   Flutter:
     :path: "../mm_flutter/.ios/Flutter"
   FlutterPluginRegistrant:
     :path: "../mm_flutter/.ios/Flutter/FlutterPluginRegistrant"
+  YYKit:
+    :git: https://github.com/SAGESSE-CN/YYKit.git
+
+CHECKOUT OPTIONS:
+  YYKit:
+    :commit: 903d9e3c5a20089f152918fe8611fcafd52c2ad1
+    :git: https://github.com/SAGESSE-CN/YYKit.git
 
 SPEC CHECKSUMS:
+  ClusterKit: 6d4b2fdfdd2a74a386fd67dd60a29a69851745e0
+  CTMediator: 3f3578b525b3a46a7a2f92a99922ec40363f4269
+  CWLateralSlide: 8939c8dea91a24e40d0793553118cb57cd67f64b
+  DZNEmptyDataSet: 9525833b9e68ac21c30253e1d3d7076cc828eaa7
+  FDFullscreenPopGesture: a8a620179e3d9c40e8e00256dcee1c1a27c6d0f0
   Flutter: e0871f40cf51350855a761d2e70bf5af5b9b5de7
   FlutterPluginRegistrant: 0b732256b4829f9783c18c68e2f9adacc1536955
   FMDB: 2ce00b547f966261cd18927a3ddb07cb6f3db82a
+  FSCalendar: 2d1d0d9398f12d439f55c1fe0f01525b151b8260
+  HWPanModal: b57a6717d3cdcd666bff44f9dd2a5be9f4d6f5d2
+  JSBadgeView: 3f5691b7d1bfacfb0237d0eb3b8b1f9a10ecb3f7
+  LEEAlert: a604ad481e3e9b021421a271f78594926dd034bb
+  LEETheme: 7fba73f7eceb4b47ef2e2813d90d8b7051fac166
+  libwebp: 1786c9f4ff8a279e4dac1e8f385004d5fc253009
   LookinServer: 1b2b61c6402ae29fa22182d48f5cd067b4e99e80
   Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
+  MBProgressHUD: 3ee5efcc380f6a79a7cc9b363dd669c5e1ae7406
   QMUIKit: 2fc09ba9a31a44a4081916ed4c41467bac798821
   ReactiveCocoa: 083ae559e6f588ce519cab412ea119b431c26a24
   ReactiveSwift: 208201d6ecc9734196d147aa76bc1f24b1b821fe
   SnapKit: d612e99e678a2d3b95bf60b0705ed0a35c03484a
+  SVProgressHUD: 4837c74bdfe2e51e8821c397825996a8d7de6e22
+  Toast: 1f5ea13423a1e6674c4abdac5be53587ae481c4e
   TYPagerController: 262556ecef99986d26ed77fb1288a198ed42f4af
+  WCDB.swift: 275f39a899bdc231065e5d90f252b361b08310d4
+  WCDBOptimizedSQLCipher: 7f03bb7c94ad164996f0fa87d0f76026f5ab0f92
+  WKWebViewJavascriptBridge: d7324badf8996486c71648f448617b09bf927b4b
+  YYKit: 9ac092a14e3d5af709b707479bdb76b96a62fb41
 
-PODFILE CHECKSUM: 931abbdf695465b5a5084d1fb51dc1811c0c720d
+PODFILE CHECKSUM: e87ca6e46a0343230b571de9d1ab760c0006a980
 
-COCOAPODS: 1.15.2
+COCOAPODS: 1.10.2
