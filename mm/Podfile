@@ -39,13 +39,26 @@ def uitools
   pod 'ClusterKit'
   # charts
   pod 'DGCharts'
+  # link preview
+  pod 'SwiftLinkPreview'
 end
 
 def imageVideoAudio
   pod 'YBImageBrowser'
   pod 'BRPickerView'
+  pod 'TZImagePickerController'
+  # image picker/clip
+  pod 'TOCropViewController'
+  # Gif
   pod 'FLAnimatedImage'
+  pod 'SDWebImage'
+  pod 'Kingfisher'
   pod 'ZFPlayer'
+end
+
+def network
+  pod 'YTKNetwork'
+  pod 'AFNetworking'
 end
 
 def database
@@ -57,6 +70,10 @@ end
 def tools
   # UI debug Tool
   pod 'LookinServer', :configurations => ['Debug']
+  # RAC OC
+  pod 'ReactiveObjC'
+  # RAC Swift
+  pod 'ReactiveCocoa'
 end
 
 def common
