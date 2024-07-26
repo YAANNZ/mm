@@ -364,7 +364,6 @@ PODS:
   - SVProgressHUD/Core (2.3.1)
   - SwiftLinkPreview (3.4.0)
   - Toast (4.1.1)
-  - TOCropViewController (2.7.4)
   - TYPagerController (2.1.2)
   - TZImagePickerController (3.8.3):
     - TZImagePickerController/Basic (= 3.8.3)

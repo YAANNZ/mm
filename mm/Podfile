@@ -102,6 +102,7 @@ target 'mm' do
   database
   tools
   common
+  network
 
   target 'mmTests' do
     inherit! :search_paths
