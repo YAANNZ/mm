@@ -160,14 +160,14 @@ import AFNetworking
     }
     
     func addDeviceInfoToLogModel(_ logModel: RRBusinessLogModel) {
-        logModel.systemInfo = RRAppInfo.sharedInstance().systemInfo
-        logModel.machineModel = RRAppInfo.sharedInstance().machineModel
+//        logModel.systemInfo = RRAppInfo.sharedInstance().systemInfo
+//        logModel.machineModel = RRAppInfo.sharedInstance().machineModel
     }
     
     func addAppInfoToLogModel(_ logModel: RRBusinessLogModel) {
-        logModel.appVersion = RRAppInfo.sharedInstance().appVersion
-        logModel.appBundleID = RRAppInfo.sharedInstance().appBundleID
-        logModel.appBundleName = RRAppInfo.sharedInstance().appBundleName
+//        logModel.appVersion = RRAppInfo.sharedInstance().appVersion
+//        logModel.appBundleID = RRAppInfo.sharedInstance().appBundleID
+//        logModel.appBundleName = RRAppInfo.sharedInstance().appBundleName
     }
     
     func addNetworkInfoToLogModel(_ logModel: RRBusinessLogModel) {

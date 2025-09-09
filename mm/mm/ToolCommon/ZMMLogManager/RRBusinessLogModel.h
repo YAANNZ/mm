@@ -7,6 +7,7 @@
 
 #import <Foundation/Foundation.h>
 #import <AFNetworking/AFNetworking.h>
+@import YYModel;
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -26,6 +27,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic,copy) NSString *appVersion;
 @property (nonatomic,copy) NSString *appBundleID;
 @property (nonatomic,copy) NSString *appBundleName;
+
+@property (assign, nonatomic) BOOL instantUpload;
 
 @property (assign, nonatomic) AFNetworkReachabilityStatus networkReachableType;
 

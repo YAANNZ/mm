@@ -1,5 +1,5 @@
 # Uncomment the next line to define a global platform for your project
-# platform :ios, '9.0'
+platform :ios, '13.0'
 
 # flutter
 flutter_application_path = '../mm_flutter'
@@ -22,7 +22,7 @@ def uibase
   pod 'MBProgressHUD', '~> 1.2.0'
   pod 'Toast'
   # YYKit
-  pod 'YYKit', git: 'https://github.com/SAGESSE-CN/YYKit.git'
+  pod 'YYModel'
   # Nav
   pod 'CWLateralSlide'
   pod 'FDFullscreenPopGesture'
@@ -70,10 +70,6 @@ end
 def tools
   # UI debug Tool
   pod 'LookinServer', :configurations => ['Debug']
-  # RAC OC
-  pod 'ReactiveObjC'
-  # RAC Swift
-  pod 'ReactiveCocoa'
 end
 
 def common
@@ -81,7 +77,9 @@ def common
   pod 'DateTools'
   # keyboard
   pod 'IQKeyboardManager'
-  # RAC
+  # RAC OC
+  pod 'ReactiveObjC'
+  # RAC Swift
   pod 'ReactiveCocoa', '~> 10.1'
   # webview Bridge
 	pod 'WKWebViewJavascriptBridge'

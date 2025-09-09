@@ -14,6 +14,7 @@
 #import "LEEThemeHelper.h"
 #import "LEETheme.h"
 #import "LEEThemeHelper.h"
+#import "LEEThemeImageCache.h"
 
 FOUNDATION_EXPORT double LEEThemeVersionNumber;
 FOUNDATION_EXPORT const unsigned char LEEThemeVersionString[];

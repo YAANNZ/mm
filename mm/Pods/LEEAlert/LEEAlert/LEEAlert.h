@@ -11,8 +11,8 @@
  *  @brief  LEEAlert
  *
  *  @author LEE
- *  @copyright    Copyright © 2016 - 2020年 lee. All rights reserved.
- *  @version    V1.6.4
+ *  @copyright    Copyright © 2016 - 2024年 lee. All rights reserved.
+ *  @version    V1.8.1
  */
 
 #import <Foundation/Foundation.h>
@@ -309,6 +309,9 @@ NS_ASSUME_NONNULL_BEGIN
 /** 设置 是否闪避键盘 -> 格式: .LeeAvoidKeyboard(YES) */
 @property (nonatomic, copy, readonly) LEEConfigToBool LeeAvoidKeyboard;
 
+/** 设置 Action是否使用垂直布局 -> 格式: .LeeAlertActionVerticalLayout(YES) */
+@property (nonatomic, copy, readonly) LEEConfigToBool LeeAlertActionVerticalLayout;
+
 @end
 
 @interface LEEBaseConfigModel(ActionSheet)
@@ -413,6 +416,15 @@ NS_ASSUME_NONNULL_BEGIN
 
 /** action标题的间距范围 */
 @property (nonatomic, assign) UIEdgeInsets titleEdgeInsets;
+
+/** action内容边距 */
+@property (nonatomic, assign) UIEdgeInsets contentEdgeInsets;
+
+/** action内容垂直对齐 */
+@property (nonatomic, assign) UIControlContentVerticalAlignment contentVerticalAlignment;
+
+/** action内容水平对齐 */
+@property (nonatomic, assign) UIControlContentHorizontalAlignment contentHorizontalAlignment;
 
 /** action圆角曲率 */
 @property (nonatomic, assign) CGFloat cornerRadius;

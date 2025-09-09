@@ -11,8 +11,8 @@
  *  @brief  LEEAlert
  *
  *  @author LEE
- *  @copyright    Copyright © 2016 - 2020年 lee. All rights reserved.
- *  @version    V1.6.4
+ *  @copyright    Copyright © 2016 - 2024年 lee. All rights reserved.
+ *  @version    V1.8.1
  */
 
 #import "LEEAlert.h"
@@ -28,6 +28,10 @@
 #define VIEW_HEIGHT CGRectGetHeight(self.view.frame)
 #define DEFAULTBORDERWIDTH (1.0f / [[UIScreen mainScreen] scale] + 0.02f)
 #define VIEWSAFEAREAINSETS(view) ({UIEdgeInsets i; if(@available(iOS 11.0, *)) {i = view.safeAreaInsets;} else {i = UIEdgeInsetsZero;} i;})
+
+NS_INLINE void lee_cleanupFunc(__strong dispatch_block_t *block) {
+    (*block)();
+}
 
 #pragma mark - ===================配置模型===================
 
@@ -61,6 +65,7 @@ typedef NS_ENUM(NSInteger, LEEBackgroundStyle) {
 @property (nonatomic, assign) BOOL modelIsQueue;
 @property (nonatomic, assign) BOOL modelIsContinueQueueDisplay;
 @property (nonatomic, assign) BOOL modelIsAvoidKeyboard;
+@property (nonatomic, assign) BOOL modelIsAlertActionVerticalLayout;
 @property (nonatomic, assign) BOOL modelIsScrollEnabled;
 @property (nonatomic, assign) BOOL modelIsShowsScrollIndicator;
 
@@ -148,6 +153,7 @@ typedef NS_ENUM(NSInteger, LEEBackgroundStyle) {
         _modelIsQueue = NO; //默认不加入队列
         _modelIsContinueQueueDisplay = YES; //默认继续队列显示
         _modelIsAvoidKeyboard = YES; //默认闪避键盘
+        _modelIsAlertActionVerticalLayout = NO; //默认2个Action时水平布局
         _modelIsScrollEnabled = YES; //默认可以滑动
         _modelIsShowsScrollIndicator = YES; //默认显示滑动指示器
         
@@ -912,6 +918,17 @@ typedef NS_ENUM(NSInteger, LEEBackgroundStyle) {
     
 }
 
+- (LEEConfigToBool)LeeAlertActionVerticalLayout{
+    
+    return ^(BOOL is){
+        
+        self.modelIsAlertActionVerticalLayout = is;
+        
+        return self;
+    };
+    
+}
+
 @end
 
 @implementation LEEBaseConfigModel (ActionSheet)
@@ -1203,11 +1220,11 @@ CornerRadii CornerRadiiMake(CGFloat topLeft, CGFloat topRight, CGFloat bottomLef
     };
 }
 
-CornerRadii CornerRadiiZero() {
+CornerRadii CornerRadiiZero(void) {
     return (CornerRadii){0, 0, 0, 0};
 }
 
-CornerRadii CornerRadiiNull() {
+CornerRadii CornerRadiiNull(void) {
     return (CornerRadii){-1, -1, -1, -1};
 }
 
@@ -1583,6 +1600,12 @@ CGPathRef _Nullable LEECGPathCreateWithRoundedRect(CGRect bounds, CornerRadii co
     [self.titleLabel setNumberOfLines:action.numberOfLines];
     
     [self.titleLabel setTextAlignment:action.textAlignment];
+    
+    [self setContentEdgeInsets: action.contentEdgeInsets];
+    
+    [self setContentVerticalAlignment:action.contentVerticalAlignment];
+    
+    [self setContentHorizontalAlignment:action.contentHorizontalAlignment];
     
     if (action.font) [self.titleLabel setFont:action.font];
     
@@ -2035,9 +2058,10 @@ CGPathRef _Nullable LEECGPathCreateWithRoundedRect(CGRect bounds, CornerRadii co
     self.edgesForExtendedLayout = UIRectEdgeNone;
     
     self.extendedLayoutIncludesOpaqueBars = NO;
-    
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
     self.automaticallyAdjustsScrollViewInsets = NO;
-    
+#pragma clang diagnostic push
     if (self.config.modelBackgroundStyle == LEEBackgroundStyleBlur) {
         
         self.backgroundVisualEffectView = [[UIVisualEffectView alloc] initWithEffect:nil];
@@ -2520,7 +2544,7 @@ CGPathRef _Nullable LEECGPathCreateWithRoundedRect(CGRect bounds, CornerRadii co
         finalHeight += buttonFrame.size.height + button.action.insets.top + button.action.insets.bottom;
     }
     
-    if (self.alertActionArray.count == 2) {
+    if (self.alertActionArray.count == 2 && !self.config.modelIsAlertActionVerticalLayout) {
         
         LEEActionButton *buttonA = self.alertActionArray.count == self.config.modelActionArray.count ? self.alertActionArray.firstObject : self.alertActionArray.lastObject;
         
@@ -4028,13 +4052,18 @@ CGPathRef _Nullable LEECGPathCreateWithRoundedRect(CGRect bounds, CornerRadii co
         
         self.isShowing = NO;
         
-        __weak typeof(self) weakSelf = self;
+        __block typeof(self) strongSelf = self;
         
         self.config.modelFinishConfig = ^{
             
-            __strong typeof(weakSelf) strongSelf = weakSelf;
+            __attribute__((cleanup(lee_cleanupFunc), unused)) __auto_type x = ^{
+                // break circular reference after leaving the scope.
+                strongSelf = nil;
+            };
             
-            if (!strongSelf) return;
+            if (!strongSelf) {
+                return;
+            }
             
             if ([LEEAlert shareManager].queueArray.count) {
                 
@@ -4102,14 +4131,9 @@ CGPathRef _Nullable LEECGPathCreateWithRoundedRect(CGRect bounds, CornerRadii co
         
         if (@available(iOS 13.0, *)) {
             [LEEAlert shareManager].leeWindow.overrideUserInterfaceStyle = self.config.modelUserInterfaceStyle;
-            
         }
         
-        if (@available(iOS 16.0, *)) {
-            
-        } else {
-            [[LEEAlert shareManager].leeWindow makeKeyAndVisible];
-        }
+        [[LEEAlert shareManager].leeWindow makeKeyAndVisible];
         
         self.isShowing = YES;
     }
