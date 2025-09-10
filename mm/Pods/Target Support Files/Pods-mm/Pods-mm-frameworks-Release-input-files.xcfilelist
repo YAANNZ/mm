@@ -31,8 +31,6 @@ ${BUILT_PRODUCTS_DIR}/TOCropViewController/TOCropViewController.framework
 ${BUILT_PRODUCTS_DIR}/TYPagerController/TYPagerController.framework
 ${BUILT_PRODUCTS_DIR}/TZImagePickerController/TZImagePickerController.framework
 ${BUILT_PRODUCTS_DIR}/Toast/Toast.framework
-${BUILT_PRODUCTS_DIR}/WCDB.swift/WCDBSwift.framework
-${BUILT_PRODUCTS_DIR}/WCDBOptimizedSQLCipher/sqlcipher.framework
 ${BUILT_PRODUCTS_DIR}/WKWebViewJavascriptBridge/WKWebViewJavascriptBridge.framework
 ${BUILT_PRODUCTS_DIR}/YBImageBrowser/YBImageBrowser.framework
 ${BUILT_PRODUCTS_DIR}/YTKNetwork/YTKNetwork.framework

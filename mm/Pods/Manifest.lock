@@ -414,9 +414,6 @@ PODS:
     - TZImagePickerController/Location (= 3.8.9)
   - TZImagePickerController/Basic (3.8.9)
   - TZImagePickerController/Location (3.8.9)
-  - WCDB.swift (2.1.7):
-    - WCDBOptimizedSQLCipher (= 1.4.5)
-  - WCDBOptimizedSQLCipher (1.4.5)
   - WKWebViewJavascriptBridge (1.2.2)
   - YBImageBrowser (3.0.9):
     - YBImageBrowser/Core (= 3.0.9)
@@ -468,7 +465,6 @@ DEPENDENCIES:
   - TOCropViewController
   - TYPagerController
   - TZImagePickerController
-  - WCDB.swift (= 2.1.7)
   - WKWebViewJavascriptBridge
   - YBImageBrowser
   - YTKNetwork
@@ -508,8 +504,6 @@ SPEC REPOS:
     - TOCropViewController
     - TYPagerController
     - TZImagePickerController
-    - WCDB.swift
-    - WCDBOptimizedSQLCipher
     - WKWebViewJavascriptBridge
     - YBImageBrowser
     - YTKNetwork
@@ -563,8 +557,6 @@ SPEC CHECKSUMS:
   TOCropViewController: 80b8985ad794298fb69d3341de183f33d1853654
   TYPagerController: 262556ecef99986d26ed77fb1288a198ed42f4af
   TZImagePickerController: 456f470b5dea97b37226ec7a694994a8663340b2
-  WCDB.swift: 30acc4e15818d08f2ccc23ce86bec6e5776eb218
-  WCDBOptimizedSQLCipher: a7e8fe818985dd401c39eb1bcc985bc4d92b2d06
   WKWebViewJavascriptBridge: d7324badf8996486c71648f448617b09bf927b4b
   YBImageBrowser: 7ecc8bf33ffa5f3b94c397c29b4f3638dd37f527
   YTKNetwork: c16be90b06be003de9e9cd0d3b187cc8eaf35c04
@@ -572,6 +564,6 @@ SPEC CHECKSUMS:
   YYModel: 2a7fdd96aaa4b86a824e26d0c517de8928c04b30
   ZFPlayer: 5cf39e8d9f0c2394a014b0db4767b5b5a6bffe13
 
-PODFILE CHECKSUM: e0641023a50fdb38d69530a0f3edf6207e5445d4
+PODFILE CHECKSUM: aa39a5712bacbd39fd2eadadce5dbc75efa34ca9
 
 COCOAPODS: 1.16.2
