@@ -118,7 +118,8 @@ enum HandleCategory : unsigned char {
     HandleCategoryNormal = 0,
     HandleCategoryMigrate,
     HandleCategoryCompress,
-    HandleCategoryBackup,
+    HandleCategoryBackupRead,
+    HandleCategoryBackupWrite,
     HandleCategoryCipher,
     HandleCategoryCheckpoint,
     HandleCategoryIntegrity,
@@ -132,12 +133,14 @@ enum class HandleType : unsigned int {
     Migrate = (HandleCategoryMigrate << 8) | HandleSlotAutoTask,
     Compress = (HandleCategoryCompress << 8) | HandleSlotAutoTask,
     BackupCipher = (HandleCategoryCipher << 8) | HandleSlotCipher,
-    Backup = (HandleCategoryBackup << 8) | HandleSlotAutoTask,
+    BackupRead = (HandleCategoryBackupRead << 8) | HandleSlotAutoTask,
+    BackupWrite = (HandleCategoryBackupWrite << 8) | HandleSlotAutoTask,
     Checkpoint = (HandleCategoryCheckpoint << 8) | HandleSlotAutoTask,
     IntegrityCheck = (HandleCategoryIntegrity << 8) | HandleSlotAutoTask,
     Assemble = (HandleCategoryNormal << 8) | HandleSlotAssemble,
     AssembleCipher = (HandleCategoryCipher << 8) | HandleSlotCipher,
-    AssembleBackup = (HandleCategoryBackup << 8) | HandleSlotAssemble,
+    AssembleBackupRead = (HandleCategoryBackupRead << 8) | HandleSlotAssemble,
+    AssembleBackupWrite = (HandleCategoryBackupWrite << 8) | HandleSlotAssemble,
     Vacuum = (HandleCategoryVacuum << 8) | HandleSlotVacuum,
     AutoVacuum = (HandleCategoryVacuum << 8) | HandleSlotAutoTask,
     MergeIndex = (HandleCategoryMergeIndex << 8) | HandleSlotAutoTask,
@@ -161,7 +164,8 @@ static constexpr const int BackupMaxIncrementalPageCount = 1000;
 static constexpr const int BackupMaxAllowIncrementalPageCount = 1000000;
 
 #pragma mark - Migrate
-static constexpr const int MigrationBatchCount = 100;
+static constexpr const double MigrateMaxExpectingDuration = 0.01;
+static constexpr const double MigrateMaxInitializeDuration = 0.005;
 
 #pragma mark - Compression
 static constexpr const int CompressionBatchCount = 10;
@@ -229,5 +233,8 @@ WCDBLiteralStringDefine(OperatorCheckIntegrity, "CheckIntegrity");
 
 #pragma mark - Tag
 static constexpr const int TagInvalidValue = 0;
+
+#pragma mark - Constraint
+static_assert(OperationQueueTimeIntervalForMigration > MigrateMaxExpectingDuration, "");
 
 } // namespace WCDB

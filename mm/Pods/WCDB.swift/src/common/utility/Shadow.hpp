@@ -40,9 +40,13 @@ class Shadow final {
     //    static_assert(std::is_base_of<Cloneable<T>, T>::value, "");
 #pragma mark - NULL
 public:
-    Shadow() : m_payload(nullptr), m_isPrivate(true) {}
+    Shadow() : m_payload(nullptr), m_isPrivate(true)
+    {
+    }
 
-    Shadow(const std::nullptr_t&) : m_payload(nullptr), m_isPrivate(true) {}
+    Shadow(const std::nullptr_t&) : m_payload(nullptr), m_isPrivate(true)
+    {
+    }
 
     Shadow& operator=(const std::nullptr_t&)
     {
@@ -51,12 +55,20 @@ public:
         return *this;
     }
 
-    bool operator==(std::nullptr_t) const { return m_payload == nullptr; }
-    bool operator!=(std::nullptr_t) const { return m_payload != nullptr; }
+    bool operator==(std::nullptr_t) const
+    {
+        return m_payload == nullptr;
+    }
+    bool operator!=(std::nullptr_t) const
+    {
+        return m_payload != nullptr;
+    }
 
 #pragma mark - Value
 public:
-    Shadow(const T& value) : m_payload(value.clone()), m_isPrivate(true) {}
+    Shadow(const T& value) : m_payload(value.clone()), m_isPrivate(true)
+    {
+    }
 
     Shadow(std::shared_ptr<T>&& value)
     : m_payload(std::move(value)), m_isPrivate(true)
@@ -72,7 +84,10 @@ public:
         return *this;
     }
 
-    const T* get() const { return m_payload.get(); }
+    const T* get() const
+    {
+        return m_payload.get();
+    }
 
     T* get()
     {

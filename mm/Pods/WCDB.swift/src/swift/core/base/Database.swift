@@ -42,29 +42,17 @@ public class Database {
     /// Init a database from file url.
     /// Note that all database objects with same path share the same core.
     /// So you can create multiple database objects. WCDB will manage them automatically.
-    ///
     /// Note that WCDB will not generate a sqlite handle until the first operation,
     /// which is also called as lazy initialization.
     ///
-    /// Note that once a database is opened in read-only mode,
-    /// it cannot be writable in the current process any more.
-    ///
     /// - Parameter url: File url to your database
-    public convenience init(at url: URL, readOnly: Bool = false) {
+    public convenience init(at url: URL) {
 #if swift(>=5)
 #else
         WCDBError.fatalError("Swift 5 is required.")
 #endif
-        let database = WCDBCoreCreateDatabase(url.standardizedFileURL.path, readOnly, false)
+        let database = WCDBCoreCreateDatabase(url.standardizedFileURL.path)
         self.init(with: database)
-    }
-
-    /// Init a in-memory database.
-    /// Since In-memory database share one DB handle among all threads,
-    /// it does not support multi-threaded concurrent operation.
-    public static func createInMemoryDatabase() -> Database {
-        let database = WCDBCoreCreateDatabase("", false, true)
-        return Database(with: database)
     }
 
     internal init(with cppDatabase: CPPDatabase) {
@@ -376,12 +364,8 @@ public extension Database {
             }
             return invocationWrap.value(cppHandle)
         }
-
         let invocationBlock: (CPPHandle) -> Bool = {
-            [weak self] cppHandle in
-            guard let self = self else {
-                return false
-            }
+            cppHandle in
             let handle = Handle(withCPPHandle: cppHandle, database: self)
             var ret = true
             do {
@@ -397,10 +381,7 @@ public extension Database {
         var uninvocationWrapPointer: UnsafeMutableRawPointer?
         if let uninvocation = uninvocation {
             let uninvocationBlock: (CPPHandle) -> Bool = {
-                [weak self] cppHandle in
-                guard let self = self else {
-                    return false
-                }
+                cppHandle in
                 let handle = Handle(withCPPHandle: cppHandle, database: self)
                 var ret = true
                 do {
@@ -1181,7 +1162,7 @@ public extension Database {
     /// - Parameter dictId: id of the dict. It can not be zero.
     /// - Throws: `Error`
     static func register(dict: Data, with dictId: DictId) throws {
-        try dict.withUnsafeBytes { (bytes: UnsafeRawBufferPointer) in
+        try dict.withUnsafeBytes { (bytes: UnsafeRawBufferPointer) -> Void in
             if !WCDBDatabaseRegisterDict(bytes.bindMemory(to: UInt8.self).baseAddress, dict.count, dictId) {
                 let cppError = WCDBCoreGetThreadedError()
                 throw ErrorBridge.getErrorFrom(cppError: cppError)
@@ -1489,15 +1470,6 @@ public extension Database {
     /// Configure the mapping relationship between traditional Chinese characters and simplified Chinese characters.
     static func config(traditionalChineseDict: [String /*Traditional Chinese character*/ : String /*Simplified Chinese character*/]) {
         WCTAPIBridge.configTraditionalChineseDict(traditionalChineseDict)
-    }
-
-    /// Enable/Disable Lite mode.
-    /// Lite mode is disabled by default.
-    /// In lite mode, the journal mode and synchronous flag of current database will be set to `OFF`,
-    /// which will significantly reduces IO, improve performance, and also increase the probability of data corruption.
-    /// Note that you can not rollback transaction or backup data in lite mode.
-    func setLiteMode(enable: Bool) {
-        WCDBDatabaseEnableLiteMode(database, enable)
     }
 }
 

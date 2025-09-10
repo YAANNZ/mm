@@ -61,7 +61,6 @@ bool Compression::shouldCompress() const
 void Compression::purge()
 {
     LockGuard lockGuard(m_lock);
-    m_hasCreatedRecord = false;
     m_tableAcquired = false;
     m_compressed = false;
     m_compressings.clear();
@@ -91,26 +90,18 @@ bool Compression::initInfo(InfoInitializer& initializer, const UnsafeStringView&
         return true;
     }
     StringView targetTable = StringView(table);
-    bool hasFiltered = false;
-    CompressionTableUserInfo userInfo(targetTable);
     TableFilter filter;
     {
         SharedLockGuard lockGuard(m_lock);
         filter = m_tableFilter;
-        auto iter = m_hints.find(targetTable);
-        if (iter != m_hints.end()) {
-            hasFiltered = true;
-            userInfo = iter->second;
-        }
     }
-    if (!hasFiltered) {
-        if (filter != nullptr) {
-            filter(userInfo);
-        }
-        if (!userInfo.shouldCompress()) {
-            markAsNoNeedToCompress(table);
-            return true;
-        }
+    CompressionTableUserInfo userInfo(targetTable);
+    if (filter != nullptr) {
+        filter(userInfo);
+    }
+    if (!userInfo.shouldCompress()) {
+        markAsNoNeedToCompress(table);
+        return true;
     }
 
     auto tableExist = initializer.tableExist(userInfo.getTable());
@@ -128,15 +119,9 @@ bool Compression::initInfo(InfoInitializer& initializer, const UnsafeStringView&
         m_compressed = false;
         if (!tableExist.value()) {
             // it's not created
-            if (!hasFiltered) {
-                m_hints.emplace(
-                std::piecewise_construct,
-                std::forward_as_tuple(targetTable),
-                std::forward_as_tuple(targetTable, userInfo.getColumnInfos()));
-                m_tableAcquired = false;
-            }
+            m_hints.emplace(targetTable);
+            m_tableAcquired = false;
         } else {
-            WCTAssert(userInfo.shouldCompress());
             m_holder.emplace_back(userInfo);
             const CompressionTableInfo* hold = &m_holder.back();
             m_filted.insert_or_assign(targetTable, hold);
@@ -157,19 +142,10 @@ void Compression::markAsNoNeedToCompress(const UnsafeStringView& table)
     m_hints.erase(table);
 }
 
-Optional<std::list<CompressionColumnInfo>>
-Compression::tryGetCompressingColumnsForNewTable(InfoInitializer& initializer,
-                                                 const UnsafeStringView& table)
+bool Compression::hintThatTableWillBeCreated(InfoInitializer& initializer,
+                                             const UnsafeStringView& table)
 {
-    if (!initInfo(initializer, table)) {
-        return NullOpt;
-    }
-    SharedLockGuard lockGuard(m_lock);
-    auto iter = m_hints.find(table);
-    if (iter != m_hints.end()) {
-        return iter->second.getColumnInfos();
-    }
-    return std::list<CompressionColumnInfo>();
+    return initInfo(initializer, table);
 }
 
 void Compression::markAsCompressed(const CompressionTableInfo* info)
@@ -277,7 +253,7 @@ bool Compression::tryCreateRecordTable(InfoInitializer& initializer)
         return false;
     }
     if (exist.value()) {
-        m_hasCreatedRecord = true;
+        m_hasCreatedRecord = false;
         return true;
     }
     InnerHandle* handle = initializer.getCurrentHandle();
@@ -291,7 +267,7 @@ bool Compression::tryCreateRecordTable(InfoInitializer& initializer)
     if (!created) {
         return false;
     }
-    m_hasCreatedRecord = true;
+    m_hasCreatedRecord = false;
     if (handle->isInTransaction()) {
         m_localHasCreatedRecord.getOrCreate() = true;
     }
@@ -340,12 +316,12 @@ Compression::InfoInitializer::checkCompressingColumns(const CompressionTableInfo
         uint16_t columnIndex = 0;
         bool findTypeColumn = false;
         for (const auto& column : curColumns) {
-            if (column.equal(compressingColumn.getColumn())) {
+            if (column.equal(compressingColumn.getColumn().syntax().name)) {
                 compressingColumn.setColumnIndex(columnIndex);
-            } else if (column.equal(compressingColumn.getTypeColumn())) {
+            } else if (column.equal(compressingColumn.getTypeColumn().syntax().name)) {
                 compressingColumn.setTypeColumnIndex(columnIndex);
                 findTypeColumn = true;
-            } else if (column.equal(compressingColumn.getMatchColumn())) {
+            } else if (column.equal(compressingColumn.getMatchColumn().syntax().name)) {
                 compressingColumn.setMatchColumnIndex(columnIndex);
             }
             columnIndex++;
@@ -375,10 +351,9 @@ Compression::Binder::Binder(Compression& compression)
 
 Compression::Binder::~Binder() = default;
 
-Optional<std::list<CompressionColumnInfo>>
-Compression::Binder::tryGetCompressingColumnsForNewTable(const UnsafeStringView& table)
+bool Compression::Binder::hintThatTableWillBeCreated(const UnsafeStringView& table)
 {
-    return m_compression.tryGetCompressingColumnsForNewTable(*this, table);
+    return m_compression.hintThatTableWillBeCreated(*this, table);
 }
 
 void Compression::Binder::notifyTransactionCommitted(bool committed)
@@ -498,12 +473,7 @@ Optional<bool> Compression::tryAcquireTables(Compression::Stepper& stepper)
         return NullOpt;
     }
     StringViewSet& tables = optionalTables.value();
-    {
-        SharedLockGuard lockGuard(m_lock);
-        for (const auto& hint : m_hints) {
-            tables.insert(hint.first);
-        }
-    }
+    tables.insert(m_hints.begin(), m_hints.end());
     for (const auto& table : tables) {
         WCTAssert(!table.hasPrefix(Syntax::builtinTablePrefix)
                   && !table.hasPrefix(Syntax::builtinWCDBTablePrefix));
@@ -523,9 +493,6 @@ Optional<bool> Compression::tryAcquireTables(Compression::Stepper& stepper)
                 iter++;
             }
         }
-    }
-    if (!tryCreateRecordTable(stepper)) {
-        return NullOpt;
     }
     if (!stepper.filterComplessingTables(needCompressInfos)) {
         return NullOpt;

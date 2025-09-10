@@ -114,7 +114,11 @@ public:
         m_conditional.notify_one();
     }
 
-    void waitUntilDone() { while (m_running.load()); }
+    void waitUntilDone()
+    {
+        while (m_running.load())
+            ;
+    }
 
     void loop(const ExpiredCallback &onElementExpired)
     {

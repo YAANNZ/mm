@@ -46,7 +46,6 @@ public:
     template<typename U, typename Enable = typename std::enable_if<std::is_constructible<T, U>::value>::type>
     ValueArray(const std::list<U>& others)
     {
-        this->reserve(others.size());
         for (const auto& other : others) {
             this->emplace_back(other);
         }
@@ -55,7 +54,6 @@ public:
     template<typename U, typename Enable = typename std::enable_if<std::is_constructible<T, U>::value>::type>
     ValueArray(const std::initializer_list<U>& others)
     {
-        this->reserve(others.size());
         for (const auto& other : others) {
             this->emplace_back(other);
         }
@@ -64,7 +62,6 @@ public:
     template<typename U, typename Enable = typename std::enable_if<std::is_constructible<T, U>::value>::type>
     ValueArray(const std::vector<U>& others)
     {
-        this->reserve(others.size());
         for (const auto& other : others) {
             this->emplace_back(other);
         }

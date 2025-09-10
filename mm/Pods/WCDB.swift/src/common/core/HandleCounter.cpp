@@ -43,17 +43,17 @@ bool HandleCounter::tryIncreaseHandleCount(HandleType type, bool writeHint)
             if (!handleShouldWaitWhenFull(type)) {
                 return false;
             }
-            m_pendingNormals.push_back(Thread::current());
+            m_pendingNormals.emplace(Thread::current());
             m_conditionalNormals.wait(lockGuard);
-            m_pendingNormals.pop_front();
+            m_pendingNormals.pop();
         }
         while (writeHint && m_writerCount >= HandlePoolMaxAllowedNumberOfWriters) {
             if (!handleShouldWaitWhenFull(type)) {
                 return false;
             }
-            m_pendingWriters.push_back(Thread::current());
+            m_pendingWriters.emplace(Thread::current());
             m_conditionalWriters.wait(lockGuard);
-            m_pendingWriters.pop_front();
+            m_pendingWriters.pop();
         }
     }
     if (writeHint) {

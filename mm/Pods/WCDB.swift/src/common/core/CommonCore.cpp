@@ -368,12 +368,11 @@ void CommonCore::setNotificationWhenDatabaseCorrupted(const UnsafeStringView& pa
 #pragma mark - Checkpoint
 void CommonCore::enableAutoCheckpoint(InnerDatabase* database, bool enable)
 {
+    database->setAutoCheckpointEnable(enable);
     if (enable) {
-        if (!database->liteModeEnable()) {
-            database->setConfig(
-            AutoCheckpointConfigName, m_autoCheckpointConfig, Configs::Priority::Highest);
-            m_operationQueue->registerAsRequiredCheckpoint(database->getPath());
-        }
+        database->setConfig(
+        AutoCheckpointConfigName, m_autoCheckpointConfig, Configs::Priority::Highest);
+        m_operationQueue->registerAsRequiredCheckpoint(database->getPath());
     } else {
         database->removeConfig(AutoCheckpointConfigName);
         m_operationQueue->registerAsNoCheckpointRequired(database->getPath());

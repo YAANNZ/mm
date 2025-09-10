@@ -59,16 +59,21 @@ bool FactoryBackup::work(const UnsafeStringView& database, bool interruptible)
 bool FactoryBackup::doBackUp(const UnsafeStringView& database, bool interruptible)
 {
     Optional<size_t> incrementalMaterialSize = 0;
+    auto config = CommonCore::shared().getABTestConfig("clicfg_wcdb_incremental_backup");
+    bool incrememtalBackupEnable = config.succeed() && config.value().length() > 0
+                                   && atoi(config.value().data()) == 1;
     SharedIncrementalMaterial incrementalMaterial;
-    incrementalMaterial = CommonCore::shared().tryGetIncrementalMaterial(database);
-    if (interruptible && incrementalMaterial != nullptr) {
-        incrementalMaterialSize = saveIncrementalMaterial(database, incrementalMaterial);
-        if (!incrementalMaterialSize.hasValue()) {
-            return false;
-        }
-        if (Time::now().seconds() - incrementalMaterial->info.lastBackupTime < OperationQueueTimeIntervalForBackup
-            && incrementalMaterial->pages.size() < BackupMaxIncrementalPageCount) {
-            return true;
+    if (incrememtalBackupEnable) {
+        incrementalMaterial = CommonCore::shared().tryGetIncrementalMaterial(database);
+        if (interruptible && incrementalMaterial != nullptr) {
+            incrementalMaterialSize = saveIncrementalMaterial(database, incrementalMaterial);
+            if (!incrementalMaterialSize.hasValue()) {
+                return false;
+            }
+            if (Time::now().seconds() - incrementalMaterial->info.lastBackupTime < OperationQueueTimeIntervalForBackup
+                && incrementalMaterial->pages.size() < BackupMaxIncrementalPageCount) {
+                return true;
+            }
         }
     }
 
@@ -98,10 +103,12 @@ bool FactoryBackup::doBackUp(const UnsafeStringView& database, bool interruptibl
     }
 
     SharedIncrementalMaterial newIncrementalMaterial = backup.getIncrementalMaterial();
-    if (!saveIncrementalMaterial(database, newIncrementalMaterial).hasValue()) {
-        return false;
+    if (incrememtalBackupEnable) {
+        if (!saveIncrementalMaterial(database, newIncrementalMaterial).hasValue()) {
+            return false;
+        }
+        CommonCore::shared().tryRegisterIncrementalMaterial(database, newIncrementalMaterial);
     }
-    CommonCore::shared().tryRegisterIncrementalMaterial(database, newIncrementalMaterial);
 
     if (interruptible) {
         notifiyBackupEnd(

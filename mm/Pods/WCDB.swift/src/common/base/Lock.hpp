@@ -30,7 +30,7 @@
 #include <condition_variable>
 #include <functional>
 #include <mutex>
-#include <list>
+#include <queue>
 
 namespace WCDB {
 
@@ -77,7 +77,7 @@ protected:
     int m_readers;
     int m_writers;
     int m_pendingReaders;
-    std::list<Thread> m_pendingWriters;
+    std::queue<Thread> m_pendingWriters;
     Thread m_locking;
     // mutable since it can be only modified threaded
     mutable ThreadLocal<int> m_threadedReaders;

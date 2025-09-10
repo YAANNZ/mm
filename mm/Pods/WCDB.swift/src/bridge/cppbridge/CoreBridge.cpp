@@ -25,24 +25,12 @@
 #include "CoreBridge.h"
 #include "CommonCore.hpp"
 #include "ObjectBridge.hpp"
-#include "Path.hpp"
 #include "ThreadedErrors.hpp"
 
-CPPDatabase WCDBCoreCreateDatabase(const char* _Nullable path, bool readOnly, bool inMemory)
+CPPDatabase WCDBCoreCreateDatabase(const char* _Nonnull path)
 {
-    WCDB::RecyclableDatabase database;
-    if (!inMemory) {
-        database
-        = WCDB::CommonCore::shared().getOrCreateDatabase(WCDB::Path::normalize(path));
-        if (readOnly) {
-            database->setReadOnly();
-        }
-    } else {
-        database
-        = WCDB::RecyclableDatabase(new WCDB::InnerDatabase(":memory:"),
-                                   [](WCDB::InnerDatabase* db) { delete db; });
-        database->setInMemory();
-    }
+    WCDB::RecyclableDatabase database
+    = WCDB::CommonCore::shared().getOrCreateDatabase(path);
     return WCDBCreateRecylableCPPObject(CPPDatabase, database);
 }
 

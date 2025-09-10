@@ -38,7 +38,7 @@ namespace WCDB {
 class HandleStatement;
 class CompressionTableInfo;
 
-enum class CompressionType : char {
+enum class CompressionType {
     Normal,
     Dict,
     VariousDict,
@@ -55,18 +55,16 @@ public:
     CompressionColumnInfo(const Column &column, const Column &matchColumn);
     CompressionColumnInfo(const CompressionColumnInfo &other);
     CompressionColumnInfo(CompressionColumnInfo &&other);
-    CompressionColumnInfo &operator=(const CompressionColumnInfo &other);
-    CompressionColumnInfo &operator=(CompressionColumnInfo &&other);
 
-    StringView getColumn() const;
+    const Column &getColumn() const;
     void setColumnIndex(uint16_t index) const;
     uint16_t getColumnIndex() const;
 
-    const StringView &getTypeColumn() const;
+    const Column &getTypeColumn() const;
     void setTypeColumnIndex(uint16_t index) const;
     uint16_t getTypeColumnIndex() const;
 
-    const StringView &getMatchColumn() const;
+    const Column &getMatchColumn() const;
     void setMatchColumnIndex(uint16_t index) const;
     uint16_t getMatchColumnIndex() const;
 
@@ -78,10 +76,11 @@ public:
     void addMatchDict(const Integer &matchValue, DictId dictId);
 
 private:
+    Column m_column;
     mutable std::atomic_ushort m_columnIndex;
-    StringView m_typeColumn;
+    Column m_typeColumn;
     mutable std::atomic_ushort m_typeColumnIndex;
-    StringView m_matchColumn;
+    Column m_matchColumn;
     mutable std::atomic_ushort m_matchColumnIndex;
 
     CompressionType m_compressionType;
@@ -95,9 +94,6 @@ public:
     bool shouldCompress() const;
     const StringView &getTable() const;
 
-    typedef const std::list<CompressionColumnInfo> ColumnInfoList;
-    ColumnInfoList &getColumnInfos() const;
-
 protected:
     StringView m_table;
     std::list<CompressionColumnInfo> m_compressingColumns;
@@ -107,8 +103,6 @@ protected:
 class CompressionTableUserInfo : public CompressionTableBaseInfo {
 public:
     CompressionTableUserInfo(const UnsafeStringView &table);
-    CompressionTableUserInfo(const UnsafeStringView &table,
-                             const std::list<CompressionColumnInfo> &columns);
     void addCompressingColumn(const CompressionColumnInfo &info);
     void enableReplaceCompresssion();
 };
@@ -119,6 +113,10 @@ public:
     CompressionTableInfo(const UnsafeStringView &table) = delete;
     CompressionTableInfo(const CompressionTableUserInfo &userInfo);
     void addCompressingColumn(const CompressionColumnInfo &info);
+
+    typedef const std::list<CompressionColumnInfo> ColumnInfoList;
+    typedef const std::list<const CompressionColumnInfo *> ColumnInfoPtrList;
+    ColumnInfoList &getColumnInfos() const;
 
     void setMinCompressedRowid(int64_t rowid) const;
     int64_t getMinCompressedRowid() const;
@@ -135,7 +133,6 @@ private:
 
 #pragma mark - Compress Statements
 public:
-    typedef const std::list<const CompressionColumnInfo *> ColumnInfoPtrList;
     /*
      SELECT rowid FROM compressingTable
      WHERE rowid < ?

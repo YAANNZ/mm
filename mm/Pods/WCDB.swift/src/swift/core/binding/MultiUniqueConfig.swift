@@ -26,11 +26,11 @@ import Foundation
 import WCDB_Private
 
 public final class MultiUniqueConfig<CodingTableKeyType: CodingTableKey>: TableConfiguration {
-    private let indexes: [IndexedColumnConvertible]
+    private let codingKeys: [CodingTableKeyType]
     private let conflict: ConflictAction?
 
     public func config(with tableBinding: TableBindingBase) {
-        let tableConstraint = TableConstraint().unique().indexed(by: indexes)
+        let tableConstraint = TableConstraint().unique().indexed(by: codingKeys)
         if let wrappedConflict = conflict {
             tableConstraint.onConflict(wrappedConflict)
         }
@@ -39,8 +39,8 @@ public final class MultiUniqueConfig<CodingTableKeyType: CodingTableKey>: TableC
         }
     }
 
-    required public init(_ indexes: IndexedColumnConvertible..., onConflict conflict: ConflictAction? = nil) {
-        self.indexes = indexes
+    required public init(_ codingKeys: CodingTableKeyType..., onConflict conflict: ConflictAction? = nil) {
+        self.codingKeys = codingKeys
         self.conflict = conflict
     }
 }

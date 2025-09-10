@@ -2,6 +2,7 @@ PODS:
   - AFNetworking (4.0.1):
     - AFNetworking/NSURLSession (= 4.0.1)
     - AFNetworking/Reachability (= 4.0.1)
+    - AFNetworking/Resources (= 4.0.1)
     - AFNetworking/Security (= 4.0.1)
     - AFNetworking/Serialization (= 4.0.1)
     - AFNetworking/UIKit (= 4.0.1)
@@ -10,6 +11,7 @@ PODS:
     - AFNetworking/Security
     - AFNetworking/Serialization
   - AFNetworking/Reachability (4.0.1)
+  - AFNetworking/Resources (4.0.1)
   - AFNetworking/Security (4.0.1)
   - AFNetworking/Serialization (4.0.1)
   - AFNetworking/UIKit (4.0.1):
@@ -412,9 +414,9 @@ PODS:
     - TZImagePickerController/Location (= 3.8.9)
   - TZImagePickerController/Basic (3.8.9)
   - TZImagePickerController/Location (3.8.9)
-  - WCDB.swift (2.1.14):
-    - WCDBOptimizedSQLCipher (= 1.4.7)
-  - WCDBOptimizedSQLCipher (1.4.7)
+  - WCDB.swift (2.1.7):
+    - WCDBOptimizedSQLCipher (= 1.4.5)
+  - WCDBOptimizedSQLCipher (1.4.5)
   - WKWebViewJavascriptBridge (1.2.2)
   - YBImageBrowser (3.0.9):
     - YBImageBrowser/Core (= 3.0.9)
@@ -432,7 +434,7 @@ PODS:
   - ZFPlayer/Core (4.1.4)
 
 DEPENDENCIES:
-  - AFNetworking
+  - AFNetworking (from `../LocalPods/AFNetworking`)
   - BRPickerView
   - ClusterKit
   - CTMediator
@@ -451,7 +453,7 @@ DEPENDENCIES:
   - JSBadgeView
   - Kingfisher
   - LEEAlert
-  - LEETheme
+  - LEETheme (from `../LocalPods/LEETheme`)
   - LookinServer
   - Masonry
   - MBProgressHUD (~> 1.2.0)
@@ -466,7 +468,7 @@ DEPENDENCIES:
   - TOCropViewController
   - TYPagerController
   - TZImagePickerController
-  - WCDB.swift
+  - WCDB.swift (= 2.1.7)
   - WKWebViewJavascriptBridge
   - YBImageBrowser
   - YTKNetwork
@@ -475,7 +477,6 @@ DEPENDENCIES:
 
 SPEC REPOS:
   trunk:
-    - AFNetworking
     - BRPickerView
     - ClusterKit
     - CTMediator
@@ -492,7 +493,6 @@ SPEC REPOS:
     - JSBadgeView
     - Kingfisher
     - LEEAlert
-    - LEETheme
     - LookinServer
     - Masonry
     - MBProgressHUD
@@ -518,13 +518,17 @@ SPEC REPOS:
     - ZFPlayer
 
 EXTERNAL SOURCES:
+  AFNetworking:
+    :path: "../LocalPods/AFNetworking"
   Flutter:
     :path: "../mm_flutter/.ios/Flutter"
   FlutterPluginRegistrant:
     :path: "../mm_flutter/.ios/Flutter/FlutterPluginRegistrant"
+  LEETheme:
+    :path: "../LocalPods/LEETheme"
 
 SPEC CHECKSUMS:
-  AFNetworking: 3bd23d814e976cd148d7d44c3ab78017b744cd58
+  AFNetworking: c61f88a4aefc6570a54fecc269cdf37bbc1666fb
   BRPickerView: 6548c8fbe21c0f29e72ab2fae177d196edc83f09
   ClusterKit: 6d4b2fdfdd2a74a386fd67dd60a29a69851745e0
   CTMediator: 3f3578b525b3a46a7a2f92a99922ec40363f4269
@@ -543,7 +547,7 @@ SPEC CHECKSUMS:
   JSBadgeView: 3f5691b7d1bfacfb0237d0eb3b8b1f9a10ecb3f7
   Kingfisher: ff82cb91d9266ddb56cbb2f72d32c26f00d3e5be
   LEEAlert: 1d0c796563b7d2e0e412478fb3494b22b31512b4
-  LEETheme: 5761fbd4503920da80660eac673065ecdd1e93fd
+  LEETheme: 84e95ffb788d09dfb6d0dbfd139b865fe06dfc29
   LookinServer: 1b2b61c6402ae29fa22182d48f5cd067b4e99e80
   Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
   MBProgressHUD: 3ee5efcc380f6a79a7cc9b363dd669c5e1ae7406
@@ -559,8 +563,8 @@ SPEC CHECKSUMS:
   TOCropViewController: 80b8985ad794298fb69d3341de183f33d1853654
   TYPagerController: 262556ecef99986d26ed77fb1288a198ed42f4af
   TZImagePickerController: 456f470b5dea97b37226ec7a694994a8663340b2
-  WCDB.swift: 0b09667a7c162989c0b0055d59d78d790deccec0
-  WCDBOptimizedSQLCipher: 9bceac087eff9625b151838d3a30364f53f71ad9
+  WCDB.swift: 30acc4e15818d08f2ccc23ce86bec6e5776eb218
+  WCDBOptimizedSQLCipher: a7e8fe818985dd401c39eb1bcc985bc4d92b2d06
   WKWebViewJavascriptBridge: d7324badf8996486c71648f448617b09bf927b4b
   YBImageBrowser: 7ecc8bf33ffa5f3b94c397c29b4f3638dd37f527
   YTKNetwork: c16be90b06be003de9e9cd0d3b187cc8eaf35c04
@@ -568,6 +572,6 @@ SPEC CHECKSUMS:
   YYModel: 2a7fdd96aaa4b86a824e26d0c517de8928c04b30
   ZFPlayer: 5cf39e8d9f0c2394a014b0db4767b5b5a6bffe13
 
-PODFILE CHECKSUM: 5224c60622308c3e280a889fb9a4f854bab9ef74
+PODFILE CHECKSUM: e0641023a50fdb38d69530a0f3edf6207e5445d4
 
 COCOAPODS: 1.16.2

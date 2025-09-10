@@ -32,6 +32,7 @@
 #include "Migration.hpp"
 #include "Tag.hpp"
 #include "ThreadLocal.hpp"
+#include "TransactionGuard.hpp"
 #include "WINQ.h"
 
 namespace WCDB {
@@ -43,7 +44,8 @@ class BaseOperation;
 class InnerDatabase final : private HandlePool,
                             public MigrationEvent,
                             public CompressionEvent,
-                            public MergeFTSIndexHandleProvider {
+                            public MergeFTSIndexHandleProvider,
+                            public TransactionEvent {
     friend BaseOperation;
 #pragma mark - Initializer
 public:
@@ -73,18 +75,16 @@ public:
     using HandlePool::unblockade;
     using HandlePool::isBlockaded;
     using HandlePool::numberOfAliveHandles;
-    void setReadOnly();
 
 protected:
     Tag m_tag;
-    bool m_isReadOnly = false;
 
     void didDrain() override final;
     bool checkShouldInterruptWhenClosing(const UnsafeStringView &sourceType);
 
 #pragma mark - Handle
 public:
-    RecyclableHandle getHandle(bool writeHint = false, bool threaded = false);
+    RecyclableHandle getHandle(bool writeHint = false);
     bool execute(const Statement &statement);
     bool execute(const UnsafeStringView &sql);
     Optional<bool> tableExists(const UnsafeStringView &table);
@@ -105,13 +105,19 @@ public:
                    int priority = Configs::Priority::Default);
     void removeConfig(const UnsafeStringView &name);
     void setFullSQLTraceEnable(bool enable);
-    void setLiteModeEnable(bool enable);
-    bool liteModeEnable();
+    void setAutoCheckpointEnable(bool enable);
 
 private:
     Configs m_configs;
     bool m_fullSQLTrace = false;
-    bool m_liteModeEnable = false;
+    bool m_autoCheckpoint;
+
+#pragma mark - Threaded
+private:
+    void markHandleAsTransactioned(InnerHandle *handle) override final;
+    void markHandleAsUntransactioned() override final;
+
+    ThreadLocal<RecyclableHandle> m_transactionedHandles;
 
 #pragma mark - Transaction
 public:
