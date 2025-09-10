@@ -215,7 +215,6 @@ void BusyRetryConfig::State::updatePagerLock(PagerLockType type)
     if (m_pagerType != type) {
         bool notify = type < m_pagerType;
         m_pagerType = type;
-        m_localPagerType.getOrCreate() = type;
         m_pagerChangeTid = Thread::getCurrentThreadId();
         if (notify) {
             tryNotify();
@@ -245,9 +244,7 @@ void BusyRetryConfig::State::updateShmLock(void* identifier, int sharedMask, int
 bool BusyRetryConfig::State::shouldWait(const Expecting& expecting) const
 {
     bool wait = false;
-    if (!expecting.satisfied(m_pagerType)
-        && m_pagerType != m_localPagerType.getOrCreate()) // Shouldn't wait for the lock obtained by itself
-    {
+    if (!expecting.satisfied(m_pagerType)) {
         wait = true;
     } else {
         for (const auto& iter : m_shmMasks) {

@@ -111,7 +111,6 @@ public:
 protected:
     void ensureNewSpace(size_t newSize);
     void createNewSpace(size_t newSize);
-    void tryClearSpace();
     void clearSpace();
 
 private:
@@ -135,7 +134,8 @@ public:
 
     template<typename T>
     struct Convertible<T, std::enable_if_t<std::is_function<T>::value>>
-    : public std::false_type {};
+    : public std::false_type {
+    };
 
     template<typename T, typename Enable = typename std::enable_if<Convertible<T>::value>::type>
     UnsafeStringView(const T& t)
@@ -185,7 +185,7 @@ public:
     static StringView makeConstant(const char* string);
     static StringView createConstant(const char* string, size_t length = 0);
 #ifdef _WIN32
-    static StringView createFromWString(const wchar_t* string, size_t length = 0);
+    static StringView createFromWString(const wchar_t* string);
 #endif
 
 protected:

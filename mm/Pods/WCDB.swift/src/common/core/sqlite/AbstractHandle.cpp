@@ -37,8 +37,6 @@ AbstractHandle::AbstractHandle()
 : m_handle(nullptr)
 , m_customOpenFlag(0)
 , m_tag(Tag::invalid())
-, m_enableLiteMode(false)
-, m_isReadOnly(false)
 , m_transactionLevel(0)
 , m_transactionError(TransactionError::Allowed)
 , m_cacheTransactionError(TransactionError::Allowed)
@@ -105,10 +103,7 @@ bool AbstractHandle::open()
 {
     bool succeed = true;
     if (!isOpened()) {
-        if (m_isReadOnly) {
-            succeed = APIExit(
-            sqlite3_open_v2(m_path.data(), &m_handle, SQLITE_OPEN_READONLY, 0));
-        } else if (m_customOpenFlag == 0) {
+        if (m_customOpenFlag == 0) {
             succeed = APIExit(sqlite3_open_v2(
             m_path.data(), &m_handle, SQLITE_OPEN_READWRITE | SQLITE_OPEN_CREATE | SQLITE_OPEN_MAINDB_READONLY, 0));
         } else {
@@ -203,16 +198,6 @@ bool AbstractHandle::canWriteMainDB()
     return m_customOpenFlag & SQLITE_OPEN_READWRITE;
 }
 
-void AbstractHandle::setLiteModeEnable(bool enable)
-{
-    m_enableLiteMode = enable;
-}
-
-bool AbstractHandle::liteModeEnable() const
-{
-    return m_enableLiteMode;
-}
-
 int AbstractHandle::getChanges()
 {
     WCTAssert(isOpened());
@@ -223,11 +208,6 @@ bool AbstractHandle::isReadonly()
 {
     WCTAssert(isOpened());
     return sqlite3_db_readonly(m_handle, NULL) == 1;
-}
-
-void AbstractHandle::setReadOnly()
-{
-    m_isReadOnly = true;
 }
 
 bool AbstractHandle::isInTransaction()
@@ -587,23 +567,17 @@ bool AbstractHandle::commitTransaction()
 
 void AbstractHandle::rollbackTransaction()
 {
-    if (m_enableLiteMode) {
-        notifyError(Error::Code::Misuse, "", "Can not execute rollback in a database without rollback journal.");
-        commitTransaction();
-        return;
-    }
-    /*
-     It is unnecessary to check whether the rollback operation is successful or not.
-     If the rollback fails and the transaction level can not be decreased,
-     db won't be able to exit the transaction under abnormal circumstances.
-     */
+    bool succeed = true;
     if (m_transactionLevel > 1) {
         if (m_transactionError == TransactionError::Allowed && isInTransaction()) {
             sqlite3_unimpeded(m_handle, true);
-            executeStatement(StatementRollback().rollbackToSavepoint(getSavepointName(m_transactionLevel)));
+            succeed = executeStatement(StatementRollback().rollbackToSavepoint(
+            getSavepointName(m_transactionLevel)));
             sqlite3_unimpeded(m_handle, false);
         }
-        --m_transactionLevel;
+        if (succeed) {
+            --m_transactionLevel;
+        }
         return;
     }
     /*
@@ -618,11 +592,13 @@ void AbstractHandle::rollbackTransaction()
         static const StatementRollback *s_rollback
         = new StatementRollback(StatementRollback().rollback());
         sqlite3_unimpeded(m_handle, true);
-        executeStatement(*s_rollback);
+        succeed = executeStatement(*s_rollback);
         sqlite3_unimpeded(m_handle, false);
     }
-    m_transactionLevel = 0;
-    m_transactionError = TransactionError::Allowed;
+    if (succeed) {
+        m_transactionLevel = 0;
+        m_transactionError = TransactionError::Allowed;
+    }
 }
 
 #pragma mark - Wal
@@ -1029,17 +1005,6 @@ bool AbstractHandle::setCipherSalt(const UnsafeStringView &salt)
 void AbstractHandle::tryPreloadAllPages()
 {
     sqlite3_preload_pages_to_cache(m_handle);
-}
-
-void AbstractHandle::setFileChunkSize(int size)
-{
-    WCTAssert(isOpened());
-    if (size < SQLITE_DEFAULT_PAGE_SIZE) {
-        return;
-    }
-    size = size / SQLITE_DEFAULT_PAGE_SIZE * SQLITE_DEFAULT_PAGE_SIZE;
-    sqlite3_file_control(
-    m_handle, Syntax::mainSchema.data(), SQLITE_FCNTL_CHUNK_SIZE, &size);
 }
 
 } //namespace WCDB

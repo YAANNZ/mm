@@ -75,16 +75,6 @@ IndexedColumn Column::asIndex(const Order& order) const
     return IndexedColumn(*this).order(order);
 }
 
-IndexedColumn Column::asAscIndex() const
-{
-    return IndexedColumn(*this).order(WCDB::Order::ASC);
-}
-
-IndexedColumn Column::asDescIndex() const
-{
-    return IndexedColumn(*this).order(WCDB::Order::DESC);
-}
-
 OrderingTerm Column::asOrder() const
 {
     return OrderingTerm(*this);
@@ -93,16 +83,6 @@ OrderingTerm Column::asOrder() const
 OrderingTerm Column::asOrder(const Order& order) const
 {
     return OrderingTerm(*this).order(order);
-}
-
-OrderingTerm Column::asAscOrder() const
-{
-    return OrderingTerm(*this).order(WCDB::Order::ASC);
-}
-
-OrderingTerm Column::asDescOrder() const
-{
-    return OrderingTerm(*this).order(WCDB::Order::DESC);
 }
 
 Column Column::all()

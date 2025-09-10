@@ -103,7 +103,6 @@ WCDBLiteralStringDefine(mainSchema, "main");
 WCDBLiteralStringDefine(tempSchema, "temp");
 WCDBLiteralStringDefine(builtinTablePrefix, "sqlite_");
 WCDBLiteralStringDefine(builtinWCDBTablePrefix, "wcdb_builtin_");
-WCDBLiteralStringDefine(malformedSchemaMsg, "malformed database schema");
 
 } // namespace Syntax
 

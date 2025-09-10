@@ -154,7 +154,7 @@ const std::function<bool(const UnsafeStringView &, const UnsafeStringView &, boo
 
     return true;
 }
-#if !defined(__OHOS__) && !defined(__ANDROID__)
+#ifndef __ANDROID__
 bool FileManager::createFileHardLink(const UnsafeStringView &from, const UnsafeStringView &to)
 {
 #ifndef _WIN32
@@ -165,9 +165,6 @@ bool FileManager::createFileHardLink(const UnsafeStringView &from, const UnsafeS
     return false;
 #else
     if (CreateHardLinkW(GetPathString(to), GetPathString(from), NULL)) {
-        return true;
-    }
-    if (CopyFile(GetPathString(from), GetPathString(to), true)) {
         return true;
     }
     setThreadedWinError(to);
@@ -281,9 +278,6 @@ bool FileManager::createDirectory(const UnsafeStringView &path)
     if (wcdb_mkdir(GetPathString(path), DirFullAccess) == 0) {
         return true;
     }
-    if (errno == EEXIST) {
-        return true;
-    }
     setThreadedError(path);
     return false;
 }
@@ -322,27 +316,23 @@ Optional<uint32_t> FileManager::getFileIdentifier(const UnsafeStringView &path)
         setThreadedWinError(path);
         return NullOpt;
     }
-    BY_HANDLE_FILE_INFORMATION fileInfo;
-    if (GetFileInformationByHandle(hFile, &fileInfo)) {
+    FILE_ID_INFO fileIdInfo;
+    if (!GetFileInformationByHandleEx(hFile, FileIdInfo, &fileIdInfo, sizeof(fileIdInfo))) {
+        setThreadedWinError(path);
         CloseHandle(hFile);
-
-        constexpr size_t size = sizeof(fileInfo.nFileIndexHigh)
-                                + sizeof(fileInfo.nFileIndexLow)
-                                + sizeof(fileInfo.dwVolumeSerialNumber);
-        unsigned char buffer[size];
-        memcpy(buffer, &fileInfo.nFileIndexHigh, sizeof(fileInfo.nFileIndexHigh));
-        memcpy(buffer + sizeof(fileInfo.nFileIndexHigh),
-               &fileInfo.nFileIndexLow,
-               sizeof(fileInfo.nFileIndexLow));
-        memcpy(buffer + sizeof(fileInfo.nFileIndexHigh) + sizeof(fileInfo.nFileIndexLow),
-               &fileInfo.dwVolumeSerialNumber,
-               sizeof(fileInfo.dwVolumeSerialNumber));
-        return UnsafeData(buffer, size).hash();
+        return NullOpt;
     }
-
-    setThreadedWinError(path);
     CloseHandle(hFile);
-    return NullOpt;
+
+    // Copy FileID and VolumeSerialNumber to a buffer
+    constexpr size_t size
+    = sizeof(fileIdInfo.FileId) + sizeof(fileIdInfo.VolumeSerialNumber);
+    unsigned char buffer[size];
+    memcpy(buffer, &fileIdInfo.FileId, sizeof(fileIdInfo.FileId));
+    memcpy(buffer + sizeof(fileIdInfo.FileId),
+           &fileIdInfo.VolumeSerialNumber,
+           sizeof(fileIdInfo.VolumeSerialNumber));
+    return UnsafeData(buffer, size).hash();
 #endif
 }
 
@@ -482,7 +472,7 @@ bool FileManager::moveItems(const std::list<std::pair<StringView, StringView>> &
                 break;
             }
             if (isDirectory) {
-#if defined(__ANDROID__) || defined(__OHOS__)
+#ifdef __ANDROID__
                 if (::rename(pairedPath.first.data(), newPath.data()) != 0) {
 #else
                 if (!createDirectoryHardLink(pairedPath.first, newPath)) {
@@ -491,7 +481,7 @@ bool FileManager::moveItems(const std::list<std::pair<StringView, StringView>> &
                     break;
                 }
             } else {
-#if defined(__ANDROID__) || defined(__OHOS__)
+#ifdef __ANDROID__
                 if (::rename(pairedPath.first.data(), newPath.data()) != 0) {
 #else
                 if (!createFileHardLink(pairedPath.first, newPath)) {
@@ -552,7 +542,7 @@ bool FileManager::setFileProtectionCompleteUntilFirstUserAuthenticationIfNeeded(
     return true;
 }
 
-#if !defined(__OHOS__) && !defined(__ANDROID__)
+#ifndef __ANDROID__
 bool FileManager::createDirectoryHardLink(const UnsafeStringView &from,
                                           const UnsafeStringView &to)
 {

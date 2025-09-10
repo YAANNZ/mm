@@ -44,7 +44,6 @@ WCDBLiteralStringImplement(mainSchema);
 WCDBLiteralStringImplement(tempSchema);
 WCDBLiteralStringImplement(builtinTablePrefix);
 WCDBLiteralStringImplement(builtinWCDBTablePrefix);
-WCDBLiteralStringImplement(malformedSchemaMsg);
 
 } // namespace Syntax
 

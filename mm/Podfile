@@ -58,12 +58,12 @@ end
 
 def network
   pod 'YTKNetwork'
-  pod 'AFNetworking'
+  pod 'AFNetworking',           :path => '../LocalPods/AFNetworking'
 end
 
 def database
   # data base
-  pod 'WCDB.swift'
+  pod 'WCDB.swift', '2.1.7'
   pod 'FMDB'
 end
 
@@ -84,7 +84,7 @@ def common
   # webview Bridge
 	pod 'WKWebViewJavascriptBridge'
   # theme
-  pod 'LEETheme'
+  pod 'LEETheme',         :path => '../LocalPods/LEETheme'
   # Module
   pod 'CTMediator'
 end

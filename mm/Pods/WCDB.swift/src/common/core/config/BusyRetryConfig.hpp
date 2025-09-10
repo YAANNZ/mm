@@ -110,7 +110,6 @@ protected:
         bool shouldWait(const Expecting& expecting) const;
         bool localShouldWait(const Expecting& expecting) const;
         PagerLockType m_pagerType;
-        mutable ThreadLocal<PagerLockType> m_localPagerType;
         uint64_t m_pagerChangeTid;
         struct ShmMask {
             ShmMask();

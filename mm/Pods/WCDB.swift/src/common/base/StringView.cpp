@@ -83,12 +83,16 @@ UnsafeStringView::UnsafeStringView(UnsafeStringView&& other)
 
 UnsafeStringView::~UnsafeStringView()
 {
-    tryClearSpace();
+    if ((uint64_t) m_referenceCount <= ConstanceReference) {
+        return;
+    }
+    if (--(*m_referenceCount) == 0) {
+        clearSpace();
+    }
 };
 
 UnsafeStringView& UnsafeStringView::operator=(const UnsafeStringView& other)
 {
-    tryClearSpace();
     m_data = other.m_data;
     m_length = other.m_length;
     m_referenceCount = other.m_referenceCount;
@@ -100,7 +104,6 @@ UnsafeStringView& UnsafeStringView::operator=(const UnsafeStringView& other)
 
 UnsafeStringView& UnsafeStringView::operator=(UnsafeStringView&& other)
 {
-    tryClearSpace();
     m_data = other.m_data;
     m_length = other.m_length;
     m_referenceCount = other.m_referenceCount;
@@ -416,23 +419,11 @@ void UnsafeStringView::createNewSpace(size_t newSize)
     }
 }
 
-void UnsafeStringView::tryClearSpace()
-{
-    if ((uint64_t) m_referenceCount <= ConstanceReference) {
-        return;
-    }
-    if (--(*m_referenceCount) == 0) {
-        clearSpace();
-    }
-}
-
 void UnsafeStringView::clearSpace()
 {
     m_referenceCount->~atomic<int>();
     free(m_referenceCount);
     m_referenceCount = nullptr;
-    m_data = "";
-    m_length = 0;
 }
 
 #ifdef __ANDROID__
@@ -471,7 +462,7 @@ char** UnsafeStringView::preAllocStringMemorySlot(int count)
 
 void UnsafeStringView::allocStringMemory(char** slot, int size)
 {
-    if (slot == nullptr) {
+    if (size == 0 || slot == nullptr) {
         return;
     }
     char* buffer = (char*) malloc((size + 1 + kReferenceSize) * sizeof(char));
@@ -479,7 +470,6 @@ void UnsafeStringView::allocStringMemory(char** slot, int size)
         return;
     }
     *slot = buffer + kReferenceSize;
-    *(*slot + size) = '\0';
 }
 
 void UnsafeStringView::clearAllocatedMemory(int count)
@@ -515,7 +505,8 @@ bool UnsafeStringView::tryRetrievePreAllocatedMemory(const char* string)
         g_preAllocatedMemory.memory[i] = nullptr;
         if (g_preAllocatedMemory.usedCount == i + 1) {
             int j = i - 1;
-            for (; j >= 0 && g_preAllocatedMemory.memory[j] == nullptr; j--);
+            for (; j >= 0 && g_preAllocatedMemory.memory[j] == nullptr; j--)
+                ;
             g_preAllocatedMemory.usedCount = j + 1;
         }
         WCTAssert(g_preAllocatedMemory.usedCount >= 0);
@@ -693,25 +684,15 @@ StringView StringView::createConstant(const char* string, size_t length)
     return ret;
 }
 #ifdef _WIN32
-StringView StringView::createFromWString(const wchar_t* string, size_t length)
+StringView StringView::createFromWString(const wchar_t* string)
 {
-    if (!string || (length == 0 && string[0] == L'\0')) {
+    int length = WideCharToMultiByte(CP_UTF8, 0, string, -1, NULL, 0, NULL, NULL);
+    if (length <= 1) {
         return StringView();
     }
-
-    int srcLen = (length > 0) ? length : -1;
-    int utf8Size = WideCharToMultiByte(CP_UTF8, 0, string, srcLen, nullptr, 0, nullptr, nullptr);
-    if (utf8Size <= 0) {
-        return StringView();
-    }
-
-    std::string utf8Str(utf8Size, 0);
-    WideCharToMultiByte(CP_UTF8, 0, string, srcLen, &utf8Str[0], utf8Size, nullptr, nullptr);
-
-    if (srcLen == -1) {
-        utf8Str.resize(utf8Size - 1);
-    }
-    return utf8Str;
+    char buffer[_MAX_PATH];
+    WideCharToMultiByte(CP_UTF8, 0, string, -1, buffer, length, NULL, NULL);
+    return StringView(buffer, length - 1);
 }
 #endif
 

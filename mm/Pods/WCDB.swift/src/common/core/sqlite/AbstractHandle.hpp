@@ -77,8 +77,6 @@ public:
 
     void enableWriteMainDB(bool enable);
     bool canWriteMainDB();
-    void setLiteModeEnable(bool enable);
-    bool liteModeEnable() const;
 
     long long getLastInsertedRowID();
     //    const char *getErrorMessage();
@@ -86,7 +84,6 @@ public:
     //    Error::Code getResultCode();
     int getChanges();
     int getTotalChange();
-    void setReadOnly();
     bool isReadonly();
     bool isInTransaction();
 
@@ -99,8 +96,6 @@ public:
 protected:
     int m_customOpenFlag;
     Tag m_tag;
-    bool m_enableLiteMode = false;
-    bool m_isReadOnly = false;
 
 #pragma mark - Statement
 public:
@@ -143,7 +138,6 @@ public:
 public:
     virtual bool beginTransaction();
     bool commitOrRollbackTransaction();
-    virtual bool commitTransaction();
     virtual void rollbackTransaction();
 
     void markErrorNotAllowedWithinTransaction();
@@ -153,6 +147,7 @@ public:
 protected:
     void cacheCurrentTransactionError();
     void resumeCacheTransactionError();
+    virtual bool commitTransaction();
 
 private:
     int m_transactionLevel;
@@ -292,7 +287,6 @@ public:
 #pragma mark - Extra
 public:
     void tryPreloadAllPages();
-    void setFileChunkSize(int size);
 };
 
 } //namespace WCDB

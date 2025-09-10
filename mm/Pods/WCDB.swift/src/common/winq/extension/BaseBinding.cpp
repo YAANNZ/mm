@@ -249,11 +249,7 @@ bool BaseBinding::createTable(const UnsafeStringView &tableName, InnerHandle *ha
             //Check whether the column names exists
             const auto &columnDefs = getColumnDefs();
             for (const auto &columnDef : columnDefs) {
-                const StringView &columnName = columnDef.first;
-                auto iter = columnNames.find(columnName);
-                if (iter == columnNames.end() && columnName.hasPrefix("'") && columnName.hasSuffix("'")) {
-                    iter = columnNames.find(columnName.subStr(1, columnName.length() - 2));
-                }
+                auto iter = columnNames.find(columnDef.first);
                 if (iter == columnNames.end()) {
                     //Add new column
                     if (!handle->addColumn(Schema::main(), tableName, columnDef.second)) {
@@ -373,12 +369,7 @@ bool BaseBinding::tryRecoverColumn(const UnsafeStringView &columnName,
     const auto &columnDefs = getColumnDefs();
     int matchCount = 0;
     for (const auto &columnDef : columnDefs) {
-        const StringView &name = columnDef.first;
-        if (columnNames.find(name) != columnNames.end()) {
-            matchCount++;
-        } else if (name.hasPrefix("'") &&
-                   name.hasSuffix("'") &&
-                   columnNames.find(name.subStr(1, name.length() - 2)) != columnNames.end()) {
+        if (columnNames.find(columnDef.first) != columnNames.end()) {
             matchCount++;
         }
     }
@@ -387,12 +378,7 @@ bool BaseBinding::tryRecoverColumn(const UnsafeStringView &columnName,
     }
 
     for (const auto &columnDef : columnDefs) {
-        const StringView &name = columnDef.first;
-        if (columnNames.find(name) != columnNames.end()) {
-            continue;
-        } else if (name.hasPrefix("'") &&
-                   name.hasSuffix("'") &&
-                   columnNames.find(name.subStr(1, name.length() - 2)) != columnNames.end()) {
+        if (columnNames.find(columnDef.first) != columnNames.end()) {
             continue;
         }
         if (columnDef.second.syntax().isPrimaryKey()

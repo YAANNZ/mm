@@ -227,8 +227,7 @@ bool AssembleHandleOperator::lazyPrepareCell()
     for (const auto &meta : metas) {
         columns.push_back(Column(meta.name));
     }
-    StatementInsert statement
-    = StatementInsert().insertIntoTable(StringView::formatted("'%s'", m_table.data()));
+    StatementInsert statement = StatementInsert().insertIntoTable(m_table);
     if (isDuplicatedReplaceable()) {
         statement.orReplace();
     } else if (isDuplicatedIgnorable()) {

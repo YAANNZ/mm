@@ -35,7 +35,8 @@ namespace WCDB {
 
 #pragma mark - CompressionColumnInfo
 CompressionColumnInfo::CompressionColumnInfo(const Column &column, CompressionType type)
-: m_columnIndex(UINT16_MAX)
+: m_column(column)
+, m_columnIndex(UINT16_MAX)
 , m_typeColumnIndex(UINT16_MAX)
 , m_matchColumnIndex(UINT16_MAX)
 , m_compressionType(type)
@@ -43,24 +44,28 @@ CompressionColumnInfo::CompressionColumnInfo(const Column &column, CompressionTy
 {
     std::ostringstream stringStream;
     stringStream << CompressionColumnTypePrefix << column.syntax().name;
-    m_typeColumn = StringView(stringStream.str());
+    m_typeColumn = Column(StringView::createConstant(
+    stringStream.str().data(), stringStream.str().length()));
 }
 
 CompressionColumnInfo::CompressionColumnInfo(const Column &column, const Column &matchColumn)
-: m_columnIndex(UINT16_MAX)
+: m_column(column)
+, m_columnIndex(UINT16_MAX)
 , m_typeColumnIndex(UINT16_MAX)
-, m_matchColumn(matchColumn.syntax().name)
+, m_matchColumn(matchColumn)
 , m_matchColumnIndex(UINT16_MAX)
 , m_compressionType(CompressionType::VariousDict)
 , m_commonDictID(-1)
 {
     std::ostringstream stringStream;
     stringStream << CompressionColumnTypePrefix << column.syntax().name;
-    m_typeColumn = StringView(stringStream.str());
+    m_typeColumn = Column(StringView::createConstant(
+    stringStream.str().data(), stringStream.str().length()));
 }
 
 CompressionColumnInfo::CompressionColumnInfo(const CompressionColumnInfo &other)
-: m_columnIndex(other.m_columnIndex.load())
+: m_column(other.m_column)
+, m_columnIndex(other.m_columnIndex.load())
 , m_typeColumn(other.m_typeColumn)
 , m_typeColumnIndex(other.m_typeColumnIndex.load())
 , m_matchColumn(other.m_matchColumn)
@@ -72,7 +77,8 @@ CompressionColumnInfo::CompressionColumnInfo(const CompressionColumnInfo &other)
 }
 
 CompressionColumnInfo::CompressionColumnInfo(CompressionColumnInfo &&other)
-: m_columnIndex(other.m_columnIndex.load())
+: m_column(std::move(other.m_column))
+, m_columnIndex(other.m_columnIndex.load())
 , m_typeColumn(std::move(other.m_typeColumn))
 , m_typeColumnIndex(other.m_typeColumnIndex.load())
 , m_matchColumn(std::move(other.m_matchColumn))
@@ -83,35 +89,9 @@ CompressionColumnInfo::CompressionColumnInfo(CompressionColumnInfo &&other)
 {
 }
 
-CompressionColumnInfo &CompressionColumnInfo::operator=(const CompressionColumnInfo &other)
+const Column &CompressionColumnInfo::getColumn() const
 {
-    m_columnIndex = other.m_columnIndex.load();
-    m_typeColumn = other.m_typeColumn;
-    m_typeColumnIndex = other.m_typeColumnIndex.load();
-    m_matchColumn = other.m_matchColumn;
-    m_matchColumnIndex = other.m_matchColumnIndex.load();
-    m_compressionType = other.m_compressionType;
-    m_commonDictID = other.m_commonDictID;
-    m_matchDicts = other.m_matchDicts;
-    return *this;
-}
-
-CompressionColumnInfo &CompressionColumnInfo::operator=(CompressionColumnInfo &&other)
-{
-    m_columnIndex = other.m_columnIndex.load();
-    m_typeColumn = std::move(other.m_typeColumn);
-    m_typeColumnIndex = other.m_typeColumnIndex.load();
-    m_matchColumn = std::move(other.m_matchColumn);
-    m_matchColumnIndex = other.m_matchColumnIndex.load();
-    m_compressionType = other.m_compressionType;
-    m_commonDictID = other.m_commonDictID;
-    m_matchDicts = std::move(other.m_matchDicts);
-    return *this;
-}
-
-StringView CompressionColumnInfo::getColumn() const
-{
-    return m_typeColumn.subStr(CompressionColumnTypePrefix.length());
+    return m_column;
 }
 
 void CompressionColumnInfo::setColumnIndex(uint16_t index) const
@@ -125,7 +105,7 @@ uint16_t CompressionColumnInfo::getColumnIndex() const
     return m_columnIndex;
 }
 
-const StringView &CompressionColumnInfo::getTypeColumn() const
+const Column &CompressionColumnInfo::getTypeColumn() const
 {
     return m_typeColumn;
 }
@@ -141,7 +121,7 @@ uint16_t CompressionColumnInfo::getTypeColumnIndex() const
     return m_typeColumnIndex;
 }
 
-const StringView &CompressionColumnInfo::getMatchColumn() const
+const Column &CompressionColumnInfo::getMatchColumn() const
 {
     return m_matchColumn;
 }
@@ -207,11 +187,6 @@ const StringView &CompressionTableBaseInfo::getTable() const
     return m_table;
 }
 
-CompressionTableInfo::ColumnInfoList &CompressionTableBaseInfo::getColumnInfos() const
-{
-    return m_compressingColumns;
-}
-
 #pragma mark - CompressionTableUserInfo
 
 CompressionTableUserInfo::CompressionTableUserInfo(const UnsafeStringView &table)
@@ -219,17 +194,10 @@ CompressionTableUserInfo::CompressionTableUserInfo(const UnsafeStringView &table
 {
 }
 
-CompressionTableUserInfo::CompressionTableUserInfo(const UnsafeStringView &table,
-                                                   const std::list<CompressionColumnInfo> &columns)
-: CompressionTableBaseInfo(table)
-{
-    m_compressingColumns = columns;
-}
-
 void CompressionTableUserInfo::addCompressingColumn(const CompressionColumnInfo &info)
 {
     for (auto iter = m_compressingColumns.begin(); iter != m_compressingColumns.end(); iter++) {
-        if (iter->getColumn().equal(info.getColumn())) {
+        if (iter->getColumn().syntax().name.equal(info.getColumn().syntax().name)) {
             m_compressingColumns.erase(iter);
             break;
         }
@@ -248,6 +216,11 @@ CompressionTableInfo::CompressionTableInfo(const CompressionTableUserInfo &userI
 , m_minCompressedRowid(INT64_MAX)
 , m_needCheckColumn(true)
 {
+}
+
+CompressionTableInfo::ColumnInfoList &CompressionTableInfo::getColumnInfos() const
+{
+    return m_compressingColumns;
 }
 
 void CompressionTableInfo::setMinCompressedRowid(int64_t rowid) const
@@ -274,7 +247,7 @@ StringView CompressionTableInfo::getCompressionDescription() const
 {
     StringViewMap<const CompressionColumnInfo *> orderedInfos;
     for (const auto &info : m_compressingColumns) {
-        orderedInfos[info.getColumn()] = &info;
+        orderedInfos[info.getColumn().syntax().name] = &info;
     }
     std::ostringstream stream;
     bool isFirst = true;
@@ -324,9 +297,9 @@ StatementSelect CompressionTableInfo::getSelectNeedCompressRowIdStatement() cons
     if (!m_replaceCompression) {
         for (auto &column : m_compressingColumns) {
             if (condition.syntax().isValid()) {
-                condition = condition || Column(column.getTypeColumn()).isNull();
+                condition = condition || column.getTypeColumn().isNull();
             } else {
-                condition = Column(column.getTypeColumn()).isNull();
+                condition = column.getTypeColumn().isNull();
             }
         }
         condition = condition && Column::rowid() < BindParameter();
@@ -364,10 +337,10 @@ CompressionTableInfo::getSelectUncompressRowStatement(ColumnInfoPtrList *columnL
     ColumnInfoIter columnIter(&m_compressingColumns, columnList);
     const CompressionColumnInfo *column = nullptr;
     while ((column = columnIter.nextInfo()) != nullptr) {
-        resultColumns.emplace_back(Column(column->getColumn()));
-        resultColumns.emplace_back(Column(column->getTypeColumn()));
+        resultColumns.push_back(column->getColumn());
+        resultColumns.push_back(column->getTypeColumn());
         if (column->getCompressionType() == CompressionType::VariousDict) {
-            resultColumns.emplace_back(Column(column->getMatchColumn()));
+            resultColumns.push_back(column->getMatchColumn());
         }
     }
     return StatementSelect().select(resultColumns).from(m_table).where(Column::rowid() == BindParameter());
@@ -382,8 +355,8 @@ CompressionTableInfo::getUpdateCompressColumnStatement(ColumnInfoPtrList *column
     ColumnInfoIter columnIter(&getColumnInfos(), columnList);
     const CompressionColumnInfo *column = nullptr;
     while ((column = columnIter.nextInfo()) != nullptr) {
-        update.set(Column(column->getColumn())).to(BindParameter(index++));
-        update.set(Column(column->getTypeColumn())).to(BindParameter(index++));
+        update.set(column->getColumn()).to(BindParameter(index++));
+        update.set(column->getTypeColumn()).to(BindParameter(index++));
     }
     return update;
 }
@@ -486,9 +459,9 @@ StatementSelect CompressionTableInfo::getSelectCompressedRowIdStatement(int64_t 
     Expression condition;
     for (auto &column : m_compressingColumns) {
         if (condition.syntax().isValid()) {
-            condition = condition || Column(column.getTypeColumn()).notNull();
+            condition = condition || column.getTypeColumn().notNull();
         } else {
-            condition = Column(column.getTypeColumn()).notNull();
+            condition = column.getTypeColumn().notNull();
         }
     }
     return StatementSelect()
@@ -505,8 +478,8 @@ CompressionTableInfo::getSelectCompressedRowStatement(ColumnInfoPtrList *columnL
     ColumnInfoIter columnIter(&m_compressingColumns, columnList);
     const CompressionColumnInfo *column = nullptr;
     while ((column = columnIter.nextInfo()) != nullptr) {
-        resultColumns.emplace_back(CoreFunction::decompress(
-        Column(column->getColumn()), Column(column->getTypeColumn())));
+        resultColumns.push_back(
+        CoreFunction::decompress(column->getColumn(), column->getTypeColumn()));
     }
     return StatementSelect().select(resultColumns).from(m_table).where(Column::rowid() == BindParameter());
 }
