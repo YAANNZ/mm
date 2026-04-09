@@ -1,0 +1,21 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(find /Users/zhuyn/Documents/Java/ai-music-platform/aimusic_iOS -path \"*/test/*\" -name \"*.dart\" -type f 2>/dev/null | head -5)",
+      "Bash(ls -la /Users/zhuyn/Documents/Java/ai-music-platform/aimusic_iOS/mm/mm/Main/ 2>/dev/null | grep -E \"\\\\.\\(swift|m|h\\)$\")",
+      "Bash(ls -la /Users/zhuyn/Documents/Java/ai-music-platform/aimusic_iOS/mm_flutter/*.* 2>/dev/null)",
+      "Bash(find /Users/zhuyn/Documents/Java/ai-music-platform/aimusic_iOS/mm/mm -type f \\\\\\( -name \"*.m\" -o -name \"*.swift\" -o -name \"*.h\" \\\\\\) 2>/dev/null | grep -v Pods)",
+      "Bash(ls -la /Users/zhuyn/Documents/Java/ai-music-platform/aimusic_iOS/mm/mm/*.swift 2>/dev/null)",
+      "Bash(find /Users/zhuyn/Documents/Java/ai-music-platform/aimusic_iOS/mm_flutter -name \"*.dart\" -type f 2>/dev/null | head -15)",
+      "Bash(tree -L 3 /Users/zhuyn/Documents/RenRen/EstateIOS/LocalPods/RRAIAssistant/RRAIAssistant/Classes/VoiceCommmand/Core -I \"*.xcodeproj\" 2>/dev/null | head -50)",
+      "Bash(cd /Users/zhuyn/Documents/Java/ai-music-platform/aimusic_iOS/mm_flutter && flutter analyze 2>&1 | head -40)",
+      "Read(//Users/zhuyn/flutter/bin/**)",
+      "Read(//opt/homebrew/bin/**)",
+      "Read(//Users/zhuyn/**)",
+      "Bash(/Users/zhuyn/Development/flutter/bin/flutter analyze:*)",
+      "Bash(/Users/zhuyn/Development/flutter/bin/dart analyze:*)",
+      "Bash(/Users/zhuyn/Development/flutter/bin/dart run:*)",
+      "Bash(/Users/zhuyn/Development/flutter/bin/flutter pub:*)"
+    ]
+  }
+}

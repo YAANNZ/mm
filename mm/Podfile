@@ -1,14 +1,13 @@
 # Uncomment the next line to define a global platform for your project
 platform :ios, '13.0'
 
-# flutter
-flutter_application_path = '../mm_flutter'
+# flutter (shared module)
+flutter_application_path = '../../aimusic_flutter'
 load File.join(flutter_application_path, '.ios', 'Flutter', 'podhelper.rb')
 
 # pod module
 def uibase
-  # UI wedges
-  pod 'QMUIKit'
+  # QMUIKit removed — unmaintained since 2023, crashes on iOS 16+
   # Tab bar/page bar
   pod 'TYPagerController'
   # Auto layout
@@ -59,6 +58,8 @@ end
 def network
   pod 'YTKNetwork'
   pod 'AFNetworking',           :path => '../LocalPods/AFNetworking'
+  pod 'Moya'
+  pod 'Alamofire'
 end
 
 def database

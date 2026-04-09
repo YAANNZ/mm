@@ -26,6 +26,12 @@
     "DEFINES_MODULE": "YES"
   },
   "dependencies": {
-    "Flutter": []
+    "Flutter": [],
+    "audio_session": [],
+    "fluttertoast": [],
+    "just_audio": [],
+    "path_provider_foundation": [],
+    "shared_preferences_foundation": [],
+    "sqflite_darwin": []
   }
 }

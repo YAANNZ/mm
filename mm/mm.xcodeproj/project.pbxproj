@@ -40,6 +40,16 @@
 		7520D47F2B863C4400C1DAFF /* ZMMSignInVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7520D47D2B863C4400C1DAFF /* ZMMSignInVC.xib */; };
 		7520D4822B863C5700C1DAFF /* ZMMSignUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7520D4802B863C5700C1DAFF /* ZMMSignUpVC.swift */; };
 		7520D4832B863C5700C1DAFF /* ZMMSignUpVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7520D4812B863C5700C1DAFF /* ZMMSignUpVC.xib */; };
+		7555971D2F84F77700DD5CA5 /* VoiceChannelHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7555971B2F84F77700DD5CA5 /* VoiceChannelHandler.swift */; };
+		7555971E2F84F77700DD5CA5 /* PollyTTSService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7555971A2F84F77700DD5CA5 /* PollyTTSService.swift */; };
+		7555971F2F84F77700DD5CA5 /* NativeTTSService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 755597192F84F77700DD5CA5 /* NativeTTSService.swift */; };
+		755597202F84F77700DD5CA5 /* AzureSTTService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 755597172F84F77700DD5CA5 /* AzureSTTService.swift */; };
+		755597212F84F77700DD5CA5 /* NativeSTTService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 755597182F84F77700DD5CA5 /* NativeSTTService.swift */; };
+		755597222F84F77700DD5CA5 /* AudioEngineManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 755597152F84F77700DD5CA5 /* AudioEngineManager.swift */; };
+		755597232F84F77700DD5CA5 /* AzureKeywordService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 755597162F84F77700DD5CA5 /* AzureKeywordService.swift */; };
+		755597282F84F88800DD5CA5 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 755597252F84F88800DD5CA5 /* SettingsViewController.swift */; };
+		755597292F84F88800DD5CA5 /* UserProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 755597262F84F88800DD5CA5 /* UserProfileViewController.swift */; };
+		7555972A2F84F88800DD5CA5 /* ProfileChannelHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 755597242F84F88800DD5CA5 /* ProfileChannelHandler.swift */; };
 		7C8439FD28B5FF610086861A /* ZMMTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C8439FC28B5FF610086861A /* ZMMTextField.m */; };
 		B7F62E1A590185567E6D04C0 /* Pods_mm_mmUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 83987029DAF87542A7D17EA4 /* Pods_mm_mmUITests.framework */; };
 		D3BCE0E8AEE610888FF8D93C /* Pods_mmTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0B2BB92D8DB9B28F4923F8A5 /* Pods_mmTests.framework */; };
@@ -112,6 +122,16 @@
 		7520D47D2B863C4400C1DAFF /* ZMMSignInVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ZMMSignInVC.xib; sourceTree = "<group>"; };
 		7520D4802B863C5700C1DAFF /* ZMMSignUpVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZMMSignUpVC.swift; sourceTree = "<group>"; };
 		7520D4812B863C5700C1DAFF /* ZMMSignUpVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ZMMSignUpVC.xib; sourceTree = "<group>"; };
+		755597152F84F77700DD5CA5 /* AudioEngineManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioEngineManager.swift; sourceTree = "<group>"; };
+		755597162F84F77700DD5CA5 /* AzureKeywordService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AzureKeywordService.swift; sourceTree = "<group>"; };
+		755597172F84F77700DD5CA5 /* AzureSTTService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AzureSTTService.swift; sourceTree = "<group>"; };
+		755597182F84F77700DD5CA5 /* NativeSTTService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NativeSTTService.swift; sourceTree = "<group>"; };
+		755597192F84F77700DD5CA5 /* NativeTTSService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NativeTTSService.swift; sourceTree = "<group>"; };
+		7555971A2F84F77700DD5CA5 /* PollyTTSService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PollyTTSService.swift; sourceTree = "<group>"; };
+		7555971B2F84F77700DD5CA5 /* VoiceChannelHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoiceChannelHandler.swift; sourceTree = "<group>"; };
+		755597242F84F88800DD5CA5 /* ProfileChannelHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileChannelHandler.swift; sourceTree = "<group>"; };
+		755597252F84F88800DD5CA5 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		755597262F84F88800DD5CA5 /* UserProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileViewController.swift; sourceTree = "<group>"; };
 		7C8439FB28B5FF610086861A /* ZMMTextField.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZMMTextField.h; sourceTree = "<group>"; };
 		7C8439FC28B5FF610086861A /* ZMMTextField.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZMMTextField.m; sourceTree = "<group>"; };
 		83987029DAF87542A7D17EA4 /* Pods_mm_mmUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_mm_mmUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -253,6 +273,30 @@
 			path = Login;
 			sourceTree = "<group>";
 		};
+		7555971C2F84F77700DD5CA5 /* VoiceAssistant */ = {
+			isa = PBXGroup;
+			children = (
+				755597152F84F77700DD5CA5 /* AudioEngineManager.swift */,
+				755597162F84F77700DD5CA5 /* AzureKeywordService.swift */,
+				755597172F84F77700DD5CA5 /* AzureSTTService.swift */,
+				755597182F84F77700DD5CA5 /* NativeSTTService.swift */,
+				755597192F84F77700DD5CA5 /* NativeTTSService.swift */,
+				7555971A2F84F77700DD5CA5 /* PollyTTSService.swift */,
+				7555971B2F84F77700DD5CA5 /* VoiceChannelHandler.swift */,
+			);
+			path = VoiceAssistant;
+			sourceTree = "<group>";
+		};
+		755597272F84F88800DD5CA5 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				755597242F84F88800DD5CA5 /* ProfileChannelHandler.swift */,
+				755597252F84F88800DD5CA5 /* SettingsViewController.swift */,
+				755597262F84F88800DD5CA5 /* UserProfileViewController.swift */,
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
 		7C8439FA28B5FF020086861A /* ToolCommon */ = {
 			isa = PBXGroup;
 			children = (
@@ -301,6 +345,8 @@
 		D7392F15282AA23200E5B148 /* mm */ = {
 			isa = PBXGroup;
 			children = (
+				755597272F84F88800DD5CA5 /* Profile */,
+				7555971C2F84F77700DD5CA5 /* VoiceAssistant */,
 				045C73DD2B8D762F00357EAB /* mm-Bridging-Header.h */,
 				7520D4752B863BC000C1DAFF /* Login */,
 				7520D45B2B835BAD00C1DAFF /* Audio */,
@@ -354,12 +400,12 @@
 			buildConfigurationList = D7392F42282AA23700E5B148 /* Build configuration list for PBXNativeTarget "mm" */;
 			buildPhases = (
 				4CA478E6F2B77EB1799D598F /* [CP] Check Pods Manifest.lock */,
-				C9E49CA49B64D94D59560699 /* [CP-User] Run Flutter Build mm_flutter Script */,
+				E8910B5BE37B1EDE8F6ADA72 /* [CP-User] Run Flutter Build aimusic_flutter Script */,
 				D7392F0F282AA23200E5B148 /* Sources */,
 				D7392F10282AA23200E5B148 /* Frameworks */,
 				D7392F11282AA23200E5B148 /* Resources */,
 				C58DA1C3F190FF5A516E2EC0 /* [CP] Embed Pods Frameworks */,
-				F071DDA0963522FBF664BBB3 /* [CP-User] Embed Flutter Build mm_flutter Script */,
+				D57496CE311A8E580633DDAE /* [CP-User] Embed Flutter Build aimusic_flutter Script */,
 			);
 			buildRules = (
 			);
@@ -522,9 +568,13 @@
 			inputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-mm-mmUITests/Pods-mm-mmUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
+			inputPaths = (
+			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-mm-mmUITests/Pods-mm-mmUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -583,34 +633,46 @@
 			inputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-mm/Pods-mm-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
+			inputPaths = (
+			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-mm/Pods-mm-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-mm/Pods-mm-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		C9E49CA49B64D94D59560699 /* [CP-User] Run Flutter Build mm_flutter Script */ = {
+		D57496CE311A8E580633DDAE /* [CP-User] Embed Flutter Build aimusic_flutter Script */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
-			name = "[CP-User] Run Flutter Build mm_flutter Script";
+			inputPaths = (
+			);
+			name = "[CP-User] Embed Flutter Build aimusic_flutter Script";
+			outputPaths = (
+			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "set -e\nset -u\nsource \"${SRCROOT}/../mm_flutter/.ios/Flutter/flutter_export_environment.sh\"\nexport VERBOSE_SCRIPT_LOGGING=1 && \"$FLUTTER_ROOT\"/packages/flutter_tools/bin/xcode_backend.sh build";
+			shellScript = "set -e\nset -u\nsource \"${SRCROOT}/../../aimusic_flutter/.ios/Flutter/flutter_export_environment.sh\"\nexport VERBOSE_SCRIPT_LOGGING=1 && \"$FLUTTER_ROOT\"/packages/flutter_tools/bin/xcode_backend.sh embed_and_thin";
 		};
-		F071DDA0963522FBF664BBB3 /* [CP-User] Embed Flutter Build mm_flutter Script */ = {
+		E8910B5BE37B1EDE8F6ADA72 /* [CP-User] Run Flutter Build aimusic_flutter Script */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
-			name = "[CP-User] Embed Flutter Build mm_flutter Script";
+			inputPaths = (
+			);
+			name = "[CP-User] Run Flutter Build aimusic_flutter Script";
+			outputPaths = (
+			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "set -e\nset -u\nsource \"${SRCROOT}/../mm_flutter/.ios/Flutter/flutter_export_environment.sh\"\nexport VERBOSE_SCRIPT_LOGGING=1 && \"$FLUTTER_ROOT\"/packages/flutter_tools/bin/xcode_backend.sh embed_and_thin";
+			shellScript = "set -e\nset -u\nsource \"${SRCROOT}/../../aimusic_flutter/.ios/Flutter/flutter_export_environment.sh\"\nexport VERBOSE_SCRIPT_LOGGING=1 && \"$FLUTTER_ROOT\"/packages/flutter_tools/bin/xcode_backend.sh build";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -625,6 +687,9 @@
 				7520D4782B863BFE00C1DAFF /* ZMMLoginMainVC.swift in Sources */,
 				7520D4702B835BAD00C1DAFF /* ZMMAudioContentVC.m in Sources */,
 				043529D92C537DCF0032DBC8 /* RRNetworkLogManager.swift in Sources */,
+				755597282F84F88800DD5CA5 /* SettingsViewController.swift in Sources */,
+				755597292F84F88800DD5CA5 /* UserProfileViewController.swift in Sources */,
+				7555972A2F84F88800DD5CA5 /* ProfileChannelHandler.swift in Sources */,
 				7520D44E2B835B5000C1DAFF /* ZMMScoreVC.swift in Sources */,
 				043529D72C537DCF0032DBC8 /* RRBusinessLogManager.swift in Sources */,
 				7520D46B2B835BAD00C1DAFF /* SceneDelegate.m in Sources */,
@@ -632,6 +697,13 @@
 				7520D4682B835BAD00C1DAFF /* ZMMVideoViewController.swift in Sources */,
 				7520D4722B835BAD00C1DAFF /* ZMMReaderVC.swift in Sources */,
 				7C8439FD28B5FF610086861A /* ZMMTextField.m in Sources */,
+				7555971D2F84F77700DD5CA5 /* VoiceChannelHandler.swift in Sources */,
+				7555971E2F84F77700DD5CA5 /* PollyTTSService.swift in Sources */,
+				7555971F2F84F77700DD5CA5 /* NativeTTSService.swift in Sources */,
+				755597202F84F77700DD5CA5 /* AzureSTTService.swift in Sources */,
+				755597212F84F77700DD5CA5 /* NativeSTTService.swift in Sources */,
+				755597222F84F77700DD5CA5 /* AudioEngineManager.swift in Sources */,
+				755597232F84F77700DD5CA5 /* AzureKeywordService.swift in Sources */,
 				7520D47E2B863C4400C1DAFF /* ZMMSignInVC.swift in Sources */,
 				045C74162B91661C00357EAB /* ZMMScoreOptionsView.swift in Sources */,
 				7520D4822B863C5700C1DAFF /* ZMMSignUpVC.swift in Sources */,
@@ -819,11 +891,14 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = UA62U3JARN;
+				DEVELOPMENT_TEAM = 687C4JR3J3;
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GENERATE_INFOPLIST_FILE = YES;
 				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = mm/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = Muse;
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "Muse 需要麦克风权限来进行语音输入";
+				INFOPLIST_KEY_NSSpeechRecognitionUsageDescription = "Muse 需要语音识别权限将语音转换为文字";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -836,7 +911,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.zyn.mm;
+				PRODUCT_BUNDLE_IDENTIFIER = com.renren.chime.OpenHouse;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_OBJC_BRIDGING_HEADER = "mm/mm-Bridging-Header.h";
@@ -856,11 +931,14 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = UA62U3JARN;
+				DEVELOPMENT_TEAM = 687C4JR3J3;
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GENERATE_INFOPLIST_FILE = YES;
 				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = mm/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = Muse;
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "Muse 需要麦克风权限来进行语音输入";
+				INFOPLIST_KEY_NSSpeechRecognitionUsageDescription = "Muse 需要语音识别权限将语音转换为文字";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -873,7 +951,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.zyn.mm;
+				PRODUCT_BUNDLE_IDENTIFIER = com.renren.chime.OpenHouse;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_OBJC_BRIDGING_HEADER = "mm/mm-Bridging-Header.h";
@@ -892,7 +970,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = UA62U3JARN;
+				DEVELOPMENT_TEAM = 687C4JR3J3;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -901,7 +979,7 @@
 					"@loader_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.zyn.mmTests;
+				PRODUCT_BUNDLE_IDENTIFIER = com.renren.chime.OpenHouseTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -920,7 +998,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = UA62U3JARN;
+				DEVELOPMENT_TEAM = 687C4JR3J3;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -929,7 +1007,7 @@
 					"@loader_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.zyn.mmTests;
+				PRODUCT_BUNDLE_IDENTIFIER = com.renren.chime.OpenHouseTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
@@ -945,7 +1023,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = UA62U3JARN;
+				DEVELOPMENT_TEAM = 687C4JR3J3;
 				GENERATE_INFOPLIST_FILE = YES;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -953,7 +1031,7 @@
 					"@loader_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.zyn.mmUITests;
+				PRODUCT_BUNDLE_IDENTIFIER = com.renren.chime.OpenHouseUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -968,7 +1046,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = UA62U3JARN;
+				DEVELOPMENT_TEAM = 687C4JR3J3;
 				GENERATE_INFOPLIST_FILE = YES;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -976,7 +1054,7 @@
 					"@loader_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.zyn.mmUITests;
+				PRODUCT_BUNDLE_IDENTIFIER = com.renren.chime.OpenHouseUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				TARGETED_DEVICE_FAMILY = "1,2";

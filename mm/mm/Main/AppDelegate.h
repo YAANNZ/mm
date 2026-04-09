@@ -6,9 +6,13 @@
 //
 
 #import <UIKit/UIKit.h>
+@import Flutter;
 
-@interface AppDelegate : UIResponder <UIApplicationDelegate>
+@class VoiceChannelHandler;
 
+@interface AppDelegate : FlutterAppDelegate
+
+@property (nonatomic, strong) FlutterEngine *flutterEngine;
+@property (nonatomic, strong) VoiceChannelHandler *voiceHandler;
 
 @end
-
